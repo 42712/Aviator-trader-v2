@@ -1,5 +1,4 @@
-// ⚙️ Troque pela sua URL do Render após o deploy
-const API_URL = "https://SEU-APP.onrender.com/api/nova-vela";
+const API_URL = "https://aviator-trader.onrender.com/api/nova-vela";
 
 function detectarAviator() {
     return window.location.href.includes('aviator2') ? 2 : 1;
