@@ -1,36 +1,45 @@
 {
   "manifest_version": 3,
-  "name": "Aviator Trader - TipMiner",
-  "version": "1.0.0",
-  "description": "Captura velas de multiplicador do Aviator via TipMiner e envia para o servidor.",
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "webRequest",
-    "tabs"
-  ],
+  "name": "Aviator Trader - Capturador",
+  "version": "2.0",
+  "description": "Captura sinais do Aviator (Sortenabet) via WebSocket e TipMiner, enviando para servidor Render.",
+  "permissions": ["activeTab", "alarms", "storage", "tabs", "scripting"],
   "host_permissions": [
-    "*://*.tipminer.com/*",
-    "*://*.sortenabet.com/*",
-    "*://*.spribegaming.com/*",
-    "*://*.spribe.co/*",
-    "https://aviator-trader-1.render.com/*"
+    "https://betou.bet.br/*",
+    "https://sortenabet.bet.br/*",
+    "https://*.tipminer.com/*",
+    "https://*.onrender.com/*",
+    "wss://apiglobal.appbackend.tech/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.tipminer.com/*", "*://*.sortenabet.com/*"],
+      "matches": [
+        "https://betou.bet.br/games/spribe/aviator*",
+        "https://sortenabet.bet.br/games/spribe/aviator*",
+        "https://*.tipminer.com/*"
+      ],
       "js": ["content.js"],
-      "run_at": "document_end"
+      "all_frames": true,
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://betou.bet.br/games/spribe/aviator*",
+        "https://sortenabet.bet.br/games/spribe/aviator*"
+      ],
+      "js": ["main-world.js"],
+      "world": "MAIN",
+      "all_frames": true,
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
       "resources": ["inject.js"],
-      "matches": ["*://*.tipminer.com/*", "*://*.sortenabet.com/*"]
+      "matches": ["https://*.tipminer.com/*"]
     }
   ],
   "action": {

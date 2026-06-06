@@ -6,3 +6,4 @@ dist/
 *.pem
 *.crt
 *.key
+dados.txt

@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      width: 380px;
+      width: 400px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #0f1923;
       color: #e0e0e0;
@@ -21,23 +21,10 @@
       border-bottom: 1px solid #1a2d3d;
       padding-bottom: 12px;
     }
-    .header h1 {
-      font-size: 18px;
-      color: #00e676;
-      font-weight: 700;
-    }
+    .header h1 { font-size: 18px; color: #00e676; font-weight: 700; }
     .logo { font-size: 24px; }
-    .status-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
+    .status-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
     .dot.green { background: #00e676; box-shadow: 0 0 6px #00e676; }
     .dot.red { background: #ff1744; box-shadow: 0 0 6px #ff1744; }
     .dot.yellow { background: #ffd600; box-shadow: 0 0 6px #ffd600; }
@@ -48,34 +35,26 @@
       margin-bottom: 10px;
     }
     .card h3 {
-      font-size: 13px;
+      font-size: 11px;
       color: #78909c;
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 8px;
     }
-    .card .value {
-      font-size: 24px;
-      font-weight: 700;
-      color: #00e676;
-    }
-    .card .time {
-      font-size: 11px;
-      color: #78909c;
-      margin-top: 4px;
-    }
+    .card .value { font-size: 22px; font-weight: 700; color: #00e676; }
+    .card .time { font-size: 10px; color: #78909c; margin-top: 4px; }
     .logs {
       background: #09131a;
       border-radius: 8px;
       padding: 10px;
-      max-height: 200px;
+      max-height: 180px;
       overflow-y: auto;
       font-size: 11px;
       font-family: 'Consolas', monospace;
       color: #90a4ae;
       margin-bottom: 12px;
     }
-    .logs .entry { margin-bottom: 4px; border-bottom: 1px solid #1a2d3d; padding-bottom: 4px; }
+    .logs .entry { margin-bottom: 3px; border-bottom: 1px solid #1a2d3d; padding-bottom: 3px; }
     .logs .mult { color: #00e676; font-weight: bold; }
     .logs .ts { color: #78909c; }
     .btn {
@@ -95,11 +74,19 @@
     .btn-stop:hover { background: #d50000; }
     .btn-secondary { background: #263238; color: #e0e0e0; }
     .btn-secondary:hover { background: #37474f; }
-    .stats-row {
-      display: flex;
-      gap: 8px;
-    }
+    .stats-row { display: flex; gap: 8px; }
     .stats-row .card { flex: 1; text-align: center; }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+    .badge.tipminer { background: #ff6d00; color: #fff; }
+    .badge.game { background: #00e676; color: #0f1923; }
+    .badge.ws { background: #448aff; color: #fff; }
   </style>
 </head>
 <body>
@@ -107,13 +94,14 @@
     <span class="logo">✈️</span>
     <div>
       <h1>Aviator Trader</h1>
-      <span style="font-size:11px;color:#78909c;">TipMiner → Servidor</span>
+      <span style="font-size:11px;color:#78909c;">Sortenabet → Render</span>
     </div>
   </div>
 
   <div class="status-row">
     <span class="dot" id="statusDot"></span>
     <span id="statusText" style="font-size:13px;">Aguardando...</span>
+    <span id="modeBadge" class="badge" style="display:none;"></span>
   </div>
 
   <div class="stats-row">
@@ -130,7 +118,7 @@
     <div class="card">
       <h3>Enviados</h3>
       <div class="value" id="sentCount">0</div>
-      <div class="time">para o servidor</div>
+      <div class="time">velas</div>
     </div>
   </div>
 
@@ -138,13 +126,13 @@
   <button class="btn btn-stop" id="btnStop" style="display:none;">⏹ Parar Captura</button>
   <button class="btn btn-secondary" id="btnTestServer">🔗 Testar Servidor</button>
 
-  <div style="margin-top:8px;font-size:11px;color:#78909c;">
-    Servidor: <span id="serverUrl">https://aviator-trader-1.render.com</span>
+  <div style="margin-top:8px;font-size:10px;color:#78909c;">
+    Servidor: <span id="serverUrl" style="color:#00e676;">aviator-trader-1.onrender.com</span>
   </div>
 
   <h3 style="font-size:12px;margin:10px 0 6px;color:#78909c;">📋 LOGS</h3>
   <div class="logs" id="logsContainer">
-    <div style="color:#546e7a;">Aguardando inicio da captura...</div>
+    <div style="color:#546e7a;">Pronto para capturar...</div>
   </div>
 
   <script src="popup.js"></script>

@@ -1,11 +1,6 @@
-const SERVER_URL = 'https://aviator-trader-1.render.com';
-const CREDENTIALS = {
-  email: 'diegofsmaia01@gmail.com',
-  password: 'Alexia270115'
-};
+const SERVER_URL = 'https://aviator-trader-1.onrender.com';
 
 const el = (id) => document.getElementById(id);
-
 let captureActive = false;
 
 function updateStatus(status, text) {
@@ -28,7 +23,10 @@ function addLog(msg) {
 }
 
 function loadState() {
-  chrome.storage.local.get(['captureActive', 'lastMultiplier', 'lastTime', 'roundNumber', 'roundTime', 'sentCount'], (data) => {
+  chrome.storage.local.get([
+    'captureActive', 'lastMultiplier', 'lastTime',
+    'roundNumber', 'roundTime', 'sentCount'
+  ], (data) => {
     captureActive = data.captureActive || false;
     if (captureActive) {
       el('btnStart').style.display = 'none';
@@ -43,7 +41,7 @@ function loadState() {
     if (data.lastTime) el('lastTime').textContent = data.lastTime;
     if (data.roundNumber) el('roundNumber').textContent = '#' + data.roundNumber;
     if (data.roundTime) el('roundTime').textContent = data.roundTime;
-    if (data.sentCount) el('sentCount').textContent = data.sentCount;
+    if (data.sentCount !== undefined) el('sentCount').textContent = data.sentCount;
   });
 }
 
@@ -51,13 +49,21 @@ function sendToContent(action, data = {}) {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs.length === 0) return;
     const tab = tabs[0];
-    if (!tab.url || !tab.url.includes('tipminer.com')) {
-      addLog('<span style="color:#ff5252;">⚠ Abra o site tipminer.com para usar a extensão</span>');
+    if (!tab.url) {
+      addLog('<span style="color:#ff5252;">⚠ Abra sortenabet ou tipminer primeiro</span>');
       return;
+    }
+    el('modeBadge').style.display = 'inline-block';
+    if (tab.url.includes('tipminer.com')) {
+      el('modeBadge').textContent = 'TipMiner';
+      el('modeBadge').className = 'badge tipminer';
+    } else {
+      el('modeBadge').textContent = 'Game';
+      el('modeBadge').className = 'badge game';
     }
     chrome.tabs.sendMessage(tab.id, { action, ...data }, (response) => {
       if (chrome.runtime.lastError) {
-        addLog('<span style="color:#ff5252;">⚠ Recarregue a página do TipMiner</span>');
+        addLog('<span style="color:#ff5252;">⚠ Recarregue a página</span>');
       }
     });
   });
@@ -65,12 +71,13 @@ function sendToContent(action, data = {}) {
 
 el('btnStart').addEventListener('click', () => {
   chrome.storage.local.set({ captureActive: true }, () => {
-    sendToContent('startCapture', { serverUrl: SERVER_URL, credentials: CREDENTIALS });
+    sendToContent('startCapture');
     captureActive = true;
     el('btnStart').style.display = 'none';
     el('btnStop').style.display = 'block';
-    updateStatus('online', 'Iniciando captura...');
+    updateStatus('online', 'Capturando...');
     addLog('🚀 Captura iniciada');
+    addLog('🔌 Conectando ao WS de sinais...');
   });
 });
 
@@ -86,19 +93,18 @@ el('btnStop').addEventListener('click', () => {
 });
 
 el('btnTestServer').addEventListener('click', () => {
-  addLog('🔗 Testando conexão com servidor...');
+  addLog('🔗 Testando servidor...');
   updateStatus('yellow', 'Testando...');
-  fetch(SERVER_URL + '/api/health', { method: 'GET', mode: 'cors' })
+  fetch(SERVER_URL + '/api/status')
     .then(r => r.json())
     .then(data => {
-      addLog('✅ Servidor respondeu: ' + JSON.stringify(data));
+      addLog(`✅ Servidor: ${data.status} | Velas: ${data.total_velas} | Uptime: ${data.uptime}`);
       updateStatus('online', 'Servidor OK');
       setTimeout(() => updateStatus(captureActive ? 'online' : 'offline', captureActive ? 'Capturando...' : 'Parado'), 3000);
     })
     .catch(err => {
-      addLog('<span style="color:#ff5252;">❌ Erro servidor: ' + err.message + '</span>');
+      addLog('<span style="color:#ff5252;">❌ Servidor offline: ' + err.message + '</span>');
       updateStatus('offline', 'Servidor offline');
-      setTimeout(() => updateStatus(captureActive ? 'online' : 'offline', captureActive ? 'Capturando...' : 'Parado'), 3000);
     });
 });
 
