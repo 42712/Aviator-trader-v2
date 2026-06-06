@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.tipminer.com/*"],
+      "matches": ["*://*.tipminer.com/*", "*://*.sortenabet.com/*"],
       "js": ["content.js"],
       "run_at": "document_end"
     }
@@ -30,7 +30,7 @@
   "web_accessible_resources": [
     {
       "resources": ["inject.js"],
-      "matches": ["*://*.tipminer.com/*"]
+      "matches": ["*://*.tipminer.com/*", "*://*.sortenabet.com/*"]
     }
   ],
   "action": {
