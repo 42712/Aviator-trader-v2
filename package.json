@@ -1,24 +1,13 @@
 {
-  "name": "aviator_trader",
+  "name": "aviator-trader-backend",
   "version": "1.0.0",
-  "description": "Servidor intermediário entre a extensão Chrome e o painel HTML.",
-  "main": "capturador.js",
+  "description": "API para captura de velas do Aviator - Sortenabet",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/42712/AVIATOR_TRADER.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/42712/AVIATOR_TRADER/issues"
-  },
-  "homepage": "https://github.com/42712/AVIATOR_TRADER#readme",
   "dependencies": {
-    "ws": "^8.21.0"
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
   }
 }

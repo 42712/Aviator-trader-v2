@@ -1,9 +1,9 @@
-const WebSocket = require('ws');
+﻿const WebSocket = require('ws');
 const https = require('https');
 const http = require('http');
 
 const WS_URL = 'wss://apiglobal.appbackend.tech/ws/signals/v2/aviator';
-const API_URL = 'https://aviator-trader-1.onrender.com/api/nova-vela';
+const API_URL = 'https://aviator-trader-v2.onrender.com/api/nova-vela';
 
 const enviadas = new Set();
 let rodadaCache = null;

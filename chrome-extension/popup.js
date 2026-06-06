@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://aviator-trader-1.onrender.com';
+﻿const SERVER_URL = 'https://aviator-trader-v2.onrender.com';
 
 const el = (id) => document.getElementById(id);
 let captureActive = false;

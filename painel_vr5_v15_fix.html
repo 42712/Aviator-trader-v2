@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -643,7 +643,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 <div class="modal-bg" id="serverModal" onclick="if(event.target===this)closeServer()">
   <div class="modal">
     <div class="m-title">&#9775; Servidor Render <span class="m-x" onclick="closeServer()">&#10005;</span></div>
-    <div class="m-group"><label>URL Base</label><input type="text" id="cfgUrl" value="https://aviator-trader-1.onrender.com"></div>
+    <div class="m-group"><label>URL Base</label><input type="text" id="cfgUrl" value="https://aviator-trader-v2.onrender.com"></div>
     <div class="m-row">
       <div class="m-group"><label>Endpoint GET</label><input type="text" id="cfgGet" value="/api/velas"></div>
       <div class="m-group"><label>Painel</label>
@@ -749,7 +749,7 @@ let isPanning = false, panX0 = 0, panOff0 = 0;
 let _mx=0,_my=0;
 
 // Servidor
-const srv = { url:'https://aviator-trader-1.onrender.com', get:'/api/velas', post:'/api/nova-vela', painel:1, poll:1500 };
+const srv = { url:'https://aviator-trader-v2.onrender.com', get:'/api/velas', post:'/api/nova-vela', painel:1, poll:1500 };
 let pollingTimer = null, simInt = null, modoFonte = 'simulado';
 let ultimaChave = null;
 
@@ -2508,7 +2508,7 @@ setInterval(()=>{
 },500);
 
 setTimeout(()=>{
-  fetch('https://aviator-trader-1.onrender.com/api/status')
+  fetch('https://aviator-trader-v2.onrender.com/api/status')
     .then(r=>{if(r.ok)buscar(true);})
     .catch(()=>{});
 },2000);

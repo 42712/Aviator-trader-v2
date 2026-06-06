@@ -1,4 +1,4 @@
-const API_URL = "https://aviator-trader-1.onrender.com/api/nova-vela";
+﻿const API_URL = "https://aviator-trader-v2.onrender.com/api/nova-vela";
 
 function detectarAviator() {
     return window.location.href.includes('aviator2') ? 2 : 1;
