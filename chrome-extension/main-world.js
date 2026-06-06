@@ -1,6 +1,6 @@
+// ===== MAIN WORLD - WebSocket Proxy =====
+// Injeta no contexto da pagina para interceptar WS mesmo em iframes
 (function() {
-  'use strict';
-
   if (window.__aviatorWSProxy) return;
   window.__aviatorWSProxy = true;
 
@@ -29,13 +29,14 @@
           if (typeof raw === 'string') {
             window.dispatchEvent(new CustomEvent('aviator-ws-data', { detail: raw }));
           }
-        } catch(e) {}
+        } catch(e) { /* ignorar */ }
       });
 
       return ws;
     }
   });
 
+  // DOM scan trigger no MAIN world
   setInterval(() => {
     const sel = [
       '[class*="multiplier"],[class*="Multiplier"]',

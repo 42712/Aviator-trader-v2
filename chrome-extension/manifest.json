@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Aviator Trader - Capturador",
-  "version": "2.0",
-  "description": "Captura sinais do Aviator (Sortenabet) via WebSocket e TipMiner, enviando para servidor Render.",
-  "permissions": ["activeTab", "alarms", "storage", "tabs", "scripting"],
+  "name": "Capturador Sortenabet Aviator",
+  "version": "1.4",
+  "description": "Captura velas reais do Aviator 1 e 2 via WebSocket (SortenaBet) — servidor Render",
+  "permissions": ["activeTab", "alarms", "storage"],
   "host_permissions": [
     "https://betou.bet.br/*",
     "https://sortenabet.bet.br/*",
@@ -34,12 +34,6 @@
       "world": "MAIN",
       "all_frames": true,
       "run_at": "document_start"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["inject.js"],
-      "matches": ["https://*.tipminer.com/*"]
     }
   ],
   "action": {
