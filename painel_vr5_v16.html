@@ -123,11 +123,11 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 .flash{position:absolute;inset:0;border:2px solid var(--gn);opacity:0;pointer-events:none;transition:opacity .12s;z-index:45}
 .flash.on{opacity:1}
 
-/* BOTÃO VOLTAR */
+/* BOTï¿½O VOLTAR */
 #btnBack{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);background:rgba(168,85,247,.35);border:1.5px solid var(--up);border-radius:20px;padding:7px 22px;font-size:11px;font-weight:700;color:var(--up);cursor:pointer;display:none;z-index:60;font-family:var(--font);box-shadow:0 2px 12px rgba(168,85,247,.3);animation:pulseBtn 1.5s infinite}
 #btnBack.show{display:block}
 
-/* --- botão salvar config --- */
+/* --- botï¿½o salvar config --- */
 .save-cfg-btn{padding:6px 16px;background:rgba(34,197,94,.15);border:1px solid #166534;border-radius:5px;color:#22c55e;font-family:var(--font);font-size:10px;font-weight:700;cursor:pointer;transition:all .15s}
 .save-cfg-btn:hover{background:rgba(34,197,94,.25)}
 
@@ -188,7 +188,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 .bnotif-bar{height:4px;border-radius:2px;background:linear-gradient(90deg,#f472b6,#a855f7);transition:width .1s linear}
 
 
-/* -- BARRAS DE ROLAGEM GRÁFICO 2 -- */
+/* -- BARRAS DE ROLAGEM GRï¿½FICO 2 -- */
 .scroll-h-wrap{height:14px;background:var(--bg2);border-top:1px solid var(--brd);position:relative;flex-shrink:0}
 .scroll-h-track{position:absolute;left:12px;right:72px;top:4px;height:6px;background:var(--brd2);border-radius:3px;cursor:pointer}
 .scroll-h-thumb{position:absolute;top:0;height:6px;background:var(--up);border-radius:3px;cursor:grab;transition:background .15s;min-width:24px}
@@ -209,7 +209,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 .lc-ouro{background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35);color:#facc15}
 .lc-roxo{background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.4);color:#a855f7}
 .lc-ciano{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.35);color:#06b6d4}
-/* -- GRÁFICO FLUTUANTE -- */
+/* -- GRï¿½FICO FLUTUANTE -- */
 .float-chart-wrap{position:fixed;z-index:999;background:var(--bg2);border:1.5px solid var(--brd2);border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,.7);display:none;flex-direction:column;min-width:320px;min-height:220px;overflow:hidden;}
 .float-chart-wrap.visible{display:flex;}
 .float-titlebar{height:28px;background:var(--bg3);border-bottom:1px solid var(--brd);display:flex;align-items:center;padding:0 8px;gap:6px;cursor:move;user-select:none;flex-shrink:0;}
@@ -218,7 +218,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 .float-close:hover{background:var(--pk);}
 .float-canvas-wrap{flex:1;position:relative;overflow:hidden;background:var(--bg);min-height:0;}
 .float-canvas-wrap canvas{display:block;position:absolute;top:0;left:0;}
-/* -- PAGINAÇÃO -- */
+/* -- PAGINAï¿½ï¿½O -- */
 .hist-pages{display:flex;align-items:center;gap:4px;padding:0 8px;height:26px;background:var(--bg2);border-top:1px solid var(--brd);flex-shrink:0;overflow-x:auto;}
 .hist-pages::-webkit-scrollbar{height:3px;}
 .hist-pages::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:2px;}
@@ -263,7 +263,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 
 <input type="file" id="tipminerImportInput" accept=".csv,.xlsx,.xls" style="display:none" onchange="importarHistoricoTipMiner(this.files[0])">
 
-<!-- --- MOTOR BURST — PAINEL LATERAL --- -->
+<!-- --- MOTOR BURST ï¿½ PAINEL LATERAL --- -->
 
 
 <div class="root">
@@ -276,9 +276,9 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
     <button class="btn on" id="tool-cursor" onclick="setTool('cursor')">&#9654;</button>
     <button class="btn" id="tool-hline"  onclick="setTool('hline')"  title="Linha Horizontal">&#8212;</button>
     <button class="btn" id="tool-vline"  onclick="setTool('vline')"  title="Linha Vertical">|</button>
-    <button class="btn" id="tool-tline"  onclick="setTool('tline')"  title="Tendência">&#8598;</button>
+    <button class="btn" id="tool-tline"  onclick="setTool('tline')"  title="Tendï¿½ncia">&#8598;</button>
     <button class="btn" id="tool-channel" onclick="setTool('channel')" title="Canal">&#8661;</button>
-    <button class="btn" id="tool-rect"   onclick="setTool('rect')"   title="Retângulo">&#9645;</button>
+    <button class="btn" id="tool-rect"   onclick="setTool('rect')"   title="Retï¿½ngulo">&#9645;</button>
     <button class="btn" id="tool-fib"    onclick="setTool('fib')"    title="Fibonacci">F</button>
     <button class="btn" id="tool-arrow"  onclick="setTool('arrow')"  title="Seta">&#10132;</button>
     <button class="btn" id="tool-text"   onclick="setTool('text')"   title="Texto">T</button>
@@ -290,13 +290,13 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
     <button class="btn" onclick="zoomOut()">&#8722;</button>
     <button class="btn" onclick="resetView()">&#8635;</button>
     <button class="btn" id="maBtn" onclick="toggleMA()">MM</button>
-    <button class="btn b" onclick="openCfgMM()" title="Configurar Médias Móveis">&#9881; MM</button>
+    <button class="btn b" onclick="openCfgMM()" title="Configurar Mï¿½dias Mï¿½veis">&#9881; MM</button>
   </div>
   <div class="tb-right">
-    <button class="btn" id="btnSemRosa" title="Velas desde a última rosa">?? SEM ROSA: —</button>
-    <button class="btn" id="btnRoxas10" title="Roxas (2x–9x) nos últimos 10 min">?? ROXAS/10min: —</button>
+    <button class="btn" id="btnSemRosa" title="Velas desde a ï¿½ltima rosa">?? SEM ROSA: ï¿½</button>
+    <button class="btn" id="btnRoxas10" title="Roxas (2xï¿½9x) nos ï¿½ltimos 10 min">?? ROXAS/10min: ï¿½</button>
     <button class="btn g" id="btnRodada" onclick="toggleModoRodada()">&#9313; RODADA</button>
-    <button class="btn b" id="btnImportTip" onclick="abrirImportTipMiner()">IMPORTAR HISTÓRICO</button>
+    <button class="btn b" id="btnImportTip" onclick="abrirImportTipMiner()">IMPORTAR HISTï¿½RICO</button>
     <button class="btn b" onclick="openServer()">&#9775; SERVIDOR</button>
     <div class="ws-pill err" id="wsStatus"><span class="wsd"></span><span id="wsLabel">SIMULADO</span></div>
   </div>
@@ -320,7 +320,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
   </div>
   <div class="tb" id="tb-tline" onclick="setTool('tline')">
     <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4"/><polyline points="14,4 20,4 20,10"/></svg>
-    <span class="tblabel">Tendência</span>
+    <span class="tblabel">Tendï¿½ncia</span>
   </div>
   <div class="tb" id="tb-channel" onclick="setTool('channel')">
     <svg viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="4"/><line x1="3" y1="14" x2="21" y2="11"/></svg>
@@ -329,7 +329,7 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
   <div class="tb-sep"></div>
   <div class="tb" id="tb-rect" onclick="setTool('rect')">
     <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/></svg>
-    <span class="tblabel">Retângulo</span>
+    <span class="tblabel">Retï¿½ngulo</span>
   </div>
   <div class="tb" id="tb-fib" onclick="setTool('fib')">
     <svg viewBox="0 0 24 24"><line x1="3" y1="5" x2="21" y2="5"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="3" y1="20" x2="21" y2="20"/><line x1="3" y1="3" x2="3" y2="21"/></svg>
@@ -359,21 +359,21 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
   </div>
 </div>
 
-<!-- GRÁFICO -->
+<!-- GRï¿½FICO -->
 <div class="chart-col">
   <div class="chart-switch">
-    <button class="graf-btn on" id="btnGraf1" onclick="setGrafico(1)">GRÁFICO 1</button>
-    <button class="graf-btn" id="btnGraf2" onclick="setGrafico(2)">GRÁFICO 2</button>
+    <button class="graf-btn on" id="btnGraf1" onclick="setGrafico(1)">GRï¿½FICO 1</button>
+    <button class="graf-btn" id="btnGraf2" onclick="setGrafico(2)">GRï¿½FICO 2</button>
   </div>
 
   <div class="raw-wrap" id="rawWrap">
-    <div class="raw-title">GRÁFICO 1 — TIPMINER NORMAL / HISTÓRICO IMPORTADO</div>
+    <div class="raw-title">GRï¿½FICO 1 ï¿½ TIPMINER NORMAL / HISTï¿½RICO IMPORTADO</div>
     <div class="tip-grid" id="tipGrid"></div>
     <canvas id="cvRaw" style="display:none"></canvas>
   </div>
 
   <div class="canvas-wrap" id="cwrap" style="display:none">
-    <div class="raw-title" style="color:var(--up)">GRÁFICO 2 — PONTOS VR5 / TEMPO SEM PAGAR</div>
+    <div class="raw-title" style="color:var(--up)">GRï¿½FICO 2 ï¿½ PONTOS VR5 / TEMPO SEM PAGAR</div>
     <!-- Watermark Aviator Trader -->
     <div id="watermarkAviator" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:1;user-select:none;opacity:0.055;">
       <svg width="260" height="140" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" fill="white">
@@ -409,10 +409,10 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
       </div>
     </div>
     <div class="g2-topstats" id="g2TopStats">
-      <div class="g2-card g10"><div class="g2-lbl">Sem pagar 10x+</div><div class="g2-val" id="g2Min10">—</div><div class="g2-sub" id="g2Val10">aguardando</div></div>
-      <div class="g2-card g30"><div class="g2-lbl">Sem pagar 30x+</div><div class="g2-val" id="g2Min30">—</div><div class="g2-sub" id="g2Val30">aguardando</div></div>
-      <div class="g2-card g50"><div class="g2-lbl">Sem pagar 50x+</div><div class="g2-val" id="g2Min50">—</div><div class="g2-sub" id="g2Val50">aguardando</div></div>
-      <div class="g2-card g100"><div class="g2-lbl">Sem pagar 100x+</div><div class="g2-val" id="g2Min100">—</div><div class="g2-sub" id="g2Val100">aguardando</div></div>
+      <div class="g2-card g10"><div class="g2-lbl">Sem pagar 10x+</div><div class="g2-val" id="g2Min10">ï¿½</div><div class="g2-sub" id="g2Val10">aguardando</div></div>
+      <div class="g2-card g30"><div class="g2-lbl">Sem pagar 30x+</div><div class="g2-val" id="g2Min30">ï¿½</div><div class="g2-sub" id="g2Val30">aguardando</div></div>
+      <div class="g2-card g50"><div class="g2-lbl">Sem pagar 50x+</div><div class="g2-val" id="g2Min50">ï¿½</div><div class="g2-sub" id="g2Val50">aguardando</div></div>
+      <div class="g2-card g100"><div class="g2-lbl">Sem pagar 100x+</div><div class="g2-val" id="g2Min100">ï¿½</div><div class="g2-sub" id="g2Val100">aguardando</div></div>
     </div>
     <canvas id="cv"></canvas>
     <div id="pov"></div>
@@ -420,56 +420,56 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
     <div class="alert" id="alertBox"></div>
     <div class="tooltip" id="ttBox"><div class="tt-v" id="ttV"></div><div class="tt-s" id="ttS"></div></div>
     <button id="btnBack" onclick="voltarPresente()">&#9654;&#9654; VOLTAR AO PRESENTE</button>
-    <button class="btn" id="btnFloat" onclick="toggleFloat()" title="Gráfico flutuante" style="position:absolute;top:6px;right:20px;z-index:20;background:rgba(168,85,247,.15);border-color:var(--up);color:var(--up);">&#9974; FLUTUAR</button>
+    <button class="btn" id="btnFloat" onclick="toggleFloat()" title="Grï¿½fico flutuante" style="position:absolute;top:6px;right:20px;z-index:20;background:rgba(168,85,247,.15);border-color:var(--up);color:var(--up);">&#9974; FLUTUAR</button>
   </div>
-  <!-- Barra de rolagem horizontal Gráfico 2 -->
+  <!-- Barra de rolagem horizontal Grï¿½fico 2 -->
   <div class="scroll-h-wrap" id="scrollHWrap" style="display:none">
     <div class="scroll-h-track" id="scrollHTrack">
       <div class="scroll-h-thumb" id="scrollHThumb"></div>
     </div>
   </div>
   <div class="xbar" id="xbarPontos" style="display:none">
-    <span id="xL">—</span><span id="xM">—</span><span id="xR">—</span>
+    <span id="xL">ï¿½</span><span id="xM">ï¿½</span><span id="xR">ï¿½</span>
     <input type="range" class="xslider" id="xslider" min="10" max="1000" value="60"
-      title="Arrastar: ajusta quantidade de velas visíveis"
+      title="Arrastar: ajusta quantidade de velas visï¿½veis"
       oninput="CFG.showN=parseInt(this.value);draw()">
-    <span id="xNow" style="color:var(--up);font-size:13px;font-weight:700;letter-spacing:1px">—</span>
+    <span id="xNow" style="color:var(--up);font-size:13px;font-weight:700;letter-spacing:1px">ï¿½</span>
     <span id="xZoom" style="color:var(--txt3)">100v</span>
   </div>
 </div>
 
 <!-- SIDEBAR -->
 <div class="data-sb">
-  <div class="sbh">ÚLTIMA VELA POR COR</div>
-  <!-- Quadradinhos: última vela de cada cor -->
+  <div class="sbh">ï¿½LTIMA VELA POR COR</div>
+  <!-- Quadradinhos: ï¿½ltima vela de cada cor -->
   <div class="last-box">
     <div class="last-cell lc-rosa" id="lcRosa">
       <span class="lc-lbl">?? Rosa 10x+</span>
-      <span class="lc-val" id="lcRosaVal">—</span>
+      <span class="lc-val" id="lcRosaVal">ï¿½</span>
       <span class="lc-time" id="lcRosaTime">aguardando</span>
     </div>
     <div class="last-cell lc-ouro" id="lcOuro">
       <span class="lc-lbl">?? Ouro 50x+</span>
-      <span class="lc-val" id="lcOuroVal">—</span>
+      <span class="lc-val" id="lcOuroVal">ï¿½</span>
       <span class="lc-time" id="lcOuroTime">aguardando</span>
     </div>
     <div class="last-cell lc-roxo" id="lcRoxo">
       <span class="lc-lbl">?? Roxo 2x+</span>
-      <span class="lc-val" id="lcRoxoVal">—</span>
+      <span class="lc-val" id="lcRoxoVal">ï¿½</span>
       <span class="lc-time" id="lcRoxoTime">aguardando</span>
     </div>
     <div class="last-cell lc-ciano" id="lcCiano">
       <span class="lc-lbl">?? Ciano &lt;2x</span>
-      <span class="lc-val" id="lcCianoVal">—</span>
+      <span class="lc-val" id="lcCianoVal">ï¿½</span>
       <span class="lc-time" id="lcCianoTime">aguardando</span>
     </div>
   </div>
   <div class="kv-block" style="padding:3px 10px 5px">
-    <div class="kv"><span class="kk">Atual</span><span class="kvv" id="sCot" style="color:var(--up)">—</span></div>
+    <div class="kv"><span class="kk">Atual</span><span class="kvv" id="sCot" style="color:var(--up)">ï¿½</span></div>
     <div class="kv"><span class="kk">Fonte</span><span class="kvv" id="oSrc" style="color:var(--txt2)">Simulado</span></div>
     <div class="kv"><span class="kk">Total</span><span class="kvv" id="sTot" style="color:var(--txt2)">0</span></div>
-    <div class="kv"><span class="kk">Compressão</span><span class="kvv" id="sCompVal" style="color:var(--dn)">0%</span></div>
-    <div class="kv"><span class="kk">Previsão Rosa</span><span class="kvv" id="sRosaProb" style="color:#f472b6">—</span></div>
+    <div class="kv"><span class="kk">Compressï¿½o</span><span class="kvv" id="sCompVal" style="color:var(--dn)">0%</span></div>
+    <div class="kv"><span class="kk">Previsï¿½o Rosa</span><span class="kvv" id="sRosaProb" style="color:#f472b6">ï¿½</span></div>
   </div>
   <div class="sbh">LOG</div>
   <div class="log-area" id="logArea"></div>
@@ -480,14 +480,14 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- MODAL RODADAS -->
 <div class="modal-bg" id="rodModal" onclick="if(event.target===this)closeRodadas()">
   <div class="modal" style="width:340px">
-    <div class="m-title">&#9313; Numeração de Rodadas <span class="m-x" onclick="closeRodadas()">&#10005;</span></div>
-    <p style="font-size:9px;color:var(--txt2);line-height:1.6">Informe qual vela corresponde a qual número de rodada. O sistema calcula automaticamente todas as demais.</p>
+    <div class="m-title">&#9313; Numeraï¿½ï¿½o de Rodadas <span class="m-x" onclick="closeRodadas()">&#10005;</span></div>
+    <p style="font-size:9px;color:var(--txt2);line-height:1.6">Informe qual vela corresponde a qual nï¿½mero de rodada. O sistema calcula automaticamente todas as demais.</p>
     <div class="m-group">
-      <label>Número da vela (posição no histórico)</label>
+      <label>Nï¿½mero da vela (posiï¿½ï¿½o no histï¿½rico)</label>
       <input type="number" class="rod-input" id="rodVela" placeholder="Ex: 10" min="1">
     </div>
     <div class="m-group">
-      <label>Número da rodada correspondente</label>
+      <label>Nï¿½mero da rodada correspondente</label>
       <input type="number" class="rod-input" id="rodNro" placeholder="Ex: 1500" min="1">
     </div>
     <div id="rodStatus" style="font-size:9px;color:var(--txt2);min-height:16px;padding:2px 0"></div>
@@ -502,14 +502,14 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- MODAL INDICADORES -->
 <div class="modal-bg" id="indModal" onclick="if(event.target===this)closeIndicadores()">
   <div class="modal" style="width:380px">
-    <div class="m-title">&#9965; Médias Móveis - Fundos de Reversão <span class="m-x" onclick="closeIndicadores()">&#10005;</span></div>
+    <div class="m-title">&#9965; Mï¿½dias Mï¿½veis - Fundos de Reversï¿½o <span class="m-x" onclick="closeIndicadores()">&#10005;</span></div>
 
-    <div style="font-size:8px;color:var(--am);letter-spacing:.8px;margin:6px 0 4px">MÉDIAS MÓVEIS CONFIGURADAS</div>
+    <div style="font-size:8px;color:var(--am);letter-spacing:.8px;margin:6px 0 4px">Mï¿½DIAS Mï¿½VEIS CONFIGURADAS</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
       <div id="ind-mm1" style="flex:1;min-width:100px;background:var(--bg3);border:2px solid #eab308;border-radius:6px;padding:8px 10px;">
         <div style="font-size:9px;color:#eab308;font-weight:700">MM Amarela</div>
         <div style="font-size:8px;color:var(--txt2);margin-top:3px">Arco de virada nos fundos</div>
-        <div style="font-size:8px;color:var(--gn);margin-top:2px">Período: 5</div>
+        <div style="font-size:8px;color:var(--gn);margin-top:2px">Perï¿½odo: 5</div>
       </div>
       <div id="ind-mm2" style="flex:1;min-width:100px;background:var(--bg3);border:2px solid #3b82f6;border-radius:6px;padding:8px 10px;">
         <div style="font-size:9px;color:#3b82f6;font-weight:700">MM Azul</div>
@@ -519,14 +519,14 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
       <div id="ind-mm3" style="flex:1;min-width:100px;background:var(--bg3);border:2px solid #22c55e;border-radius:6px;padding:8px 10px;">
         <div style="font-size:9px;color:#22c55e;font-weight:700">MM Verde</div>
         <div style="font-size:8px;color:var(--txt2);margin-top:3px">Fundos profundos</div>
-        <div style="font-size:8px;color:var(--gn);margin-top:2px">Onde azul não alcança</div>
+        <div style="font-size:8px;color:var(--gn);margin-top:2px">Onde azul nï¿½o alcanï¿½a</div>
       </div>
     </div>
 
-    <div style="font-size:8px;color:var(--pk);letter-spacing:.8px;margin:6px 0 4px">ALERTA DE FUNDO DE REVERSÃO</div>
+    <div style="font-size:8px;color:var(--pk);letter-spacing:.8px;margin:6px 0 4px">ALERTA DE FUNDO DE REVERSï¿½O</div>
     <div style="font-size:9px;color:var(--txt2);line-height:1.7;background:var(--bg3);border-radius:5px;padding:8px 10px;border:1px solid var(--brd)">
-      Alerta quando a MM Azul ou Verde toca um <b style="color:var(--gn)">fundo real</b> de reversão.<br>
-      Não dispara em falsos fundos ou mudanças de tendência.<br>
+      Alerta quando a MM Azul ou Verde toca um <b style="color:var(--gn)">fundo real</b> de reversï¿½o.<br>
+      Nï¿½o dispara em falsos fundos ou mudanï¿½as de tendï¿½ncia.<br>
       <label style="display:flex;align-items:center;gap:6px;margin-top:6px">
         <input type="checkbox" id="sinalMMOn" checked onchange="CFG.sinalMMOn=this.checked;salvarConfig()">
         <span>Ativar alerta de fundo</span>
@@ -543,43 +543,46 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 <!-- MODAL MM CONFIG -->
 <div class="modal-bg" id="mmModal" onclick="if(event.target===this)closeCfgMM()">
   <div class="modal" style="width:380px">
-    <div class="m-title">&#9881; Configurar Médias Móveis <span class="m-x" onclick="closeCfgMM()">&#10005;</span></div>
+    <div class="m-title">&#9881; Configurar Mï¿½dias Mï¿½veis <span class="m-x" onclick="closeCfgMM()">&#10005;</span></div>
 
     <!-- MM1 Amarela -->
-    <div style="font-size:8px;color:#eab308;letter-spacing:.8px;margin-top:6px;padding-bottom:4px;border-bottom:1px solid var(--brd)">MÉDIA MÓVEL AMARELA — Arco de Virada</div>
+    <div style="font-size:8px;color:#eab308;letter-spacing:.8px;margin-top:6px;padding-bottom:4px;border-bottom:1px solid var(--brd)">Mï¿½DIA Mï¿½VEL AMARELA ï¿½ Arco de Virada</div>
     <div class="mm-row"><span class="mm-label">Ativar</span><div class="mm-toggle on" id="mm1tog" onclick="mmToggle(1)"></div></div>
-    <div class="mm-row"><span class="mm-label">Período</span><input type="number" class="mm-num" id="mm1per" value="5" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">períodos</span></div>
+    <div class="mm-row"><span class="mm-label">Perï¿½odo</span><input type="number" class="mm-num" id="mm1per" value="5" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">perï¿½odos</span></div>
     <div class="mm-row"><span class="mm-label">Cor</span><input type="color" class="mm-color" id="mm1cor" value="#eab308"><span class="mm-label" style="margin-left:10px">Opacidade</span><input type="number" class="mm-op" id="mm1op" value="0.85" min="0.1" max="1" step="0.05"></div>
     <div class="mm-row">
       <span class="mm-label">Espessura</span><input type="number" class="mm-num" id="mm1lw" value="2.0" min="0.5" max="5" step="0.5"><span style="font-size:8px;color:var(--txt3);margin-left:4px">px</span>
-      <span class="mm-label" style="margin-left:10px">Traçado</span>
-      <select id="mm1dash" class="mm-sel"><option value="solid">Sólida</option><option value="dash" selected>Tracejada</option><option value="dot">Pontilhada</option></select>
+      <span class="mm-label" style="margin-left:10px">Traï¿½ado</span>
+      <select id="mm1dash" class="mm-sel"><option value="solid">Sï¿½lida</option><option value="dash" selected>Tracejada</option><option value="dot">Pontilhada</option></select>
     </div>
     <div class="mm-row"><span class="mm-label">Tipo curva</span><select id="mm1curva" class="mm-sel" style="flex:1"><option value="linear">Linear (reta)</option><option value="smooth" selected>Smooth (suave)</option><option value="bezier">Bezier</option><option value="step">Step (degrau)</option></select></div>
+    <div class="mm-row"><span class="mm-label">Arcos</span><div class="mm-toggle on" id="mm1arc" onclick="this.classList.toggle('on')"></div><span style="font-size:8px;color:var(--txt3);margin-left:8px">SÃ³ fundos com rosa</span></div>
 
     <!-- MM2 Azul -->
-    <div style="font-size:8px;color:#3b82f6;letter-spacing:.8px;margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--brd)">MÉDIA MÓVEL AZUL — Linha Reta dos Fundos</div>
+    <div style="font-size:8px;color:#3b82f6;letter-spacing:.8px;margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--brd)">Mï¿½DIA Mï¿½VEL AZUL ï¿½ Linha Reta dos Fundos</div>
     <div class="mm-row"><span class="mm-label">Ativar</span><div class="mm-toggle on" id="mm2tog" onclick="mmToggle(2)"></div></div>
-    <div class="mm-row"><span class="mm-label">Período</span><input type="number" class="mm-num" id="mm2per" value="14" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">períodos</span></div>
+    <div class="mm-row"><span class="mm-label">Perï¿½odo</span><input type="number" class="mm-num" id="mm2per" value="14" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">perï¿½odos</span></div>
     <div class="mm-row"><span class="mm-label">Cor</span><input type="color" class="mm-color" id="mm2cor" value="#3b82f6"><span class="mm-label" style="margin-left:10px">Opacidade</span><input type="number" class="mm-op" id="mm2op" value="0.75" min="0.1" max="1" step="0.05"></div>
     <div class="mm-row">
       <span class="mm-label">Espessura</span><input type="number" class="mm-num" id="mm2lw" value="2.0" min="0.5" max="5" step="0.5"><span style="font-size:8px;color:var(--txt3);margin-left:4px">px</span>
-      <span class="mm-label" style="margin-left:10px">Traçado</span>
-      <select id="mm2dash" class="mm-sel"><option value="solid">Sólida</option><option value="dash" selected>Tracejada</option><option value="dot">Pontilhada</option></select>
+      <span class="mm-label" style="margin-left:10px">Traï¿½ado</span>
+      <select id="mm2dash" class="mm-sel"><option value="solid">Sï¿½lida</option><option value="dash" selected>Tracejada</option><option value="dot">Pontilhada</option></select>
     </div>
     <div class="mm-row"><span class="mm-label">Tipo curva</span><select id="mm2curva" class="mm-sel" style="flex:1"><option value="linear" selected>Linear (reta)</option><option value="smooth">Smooth (suave)</option><option value="bezier">Bezier</option><option value="step">Step (degrau)</option></select></div>
+    <div class="mm-row"><span class="mm-label">Linha reta</span><div class="mm-toggle on" id="mm2line" onclick="this.classList.toggle('on')"></div><span style="font-size:8px;color:var(--txt3);margin-left:8px">RegressÃ£o + cÃ­rculos nos fundos</span></div>
 
     <!-- MM3 Verde -->
-    <div style="font-size:8px;color:#22c55e;letter-spacing:.8px;margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--brd)">MÉDIA MÓVEL VERDE — Fundos Profundos</div>
+    <div style="font-size:8px;color:#22c55e;letter-spacing:.8px;margin-top:8px;padding-bottom:4px;border-bottom:1px solid var(--brd)">Mï¿½DIA Mï¿½VEL VERDE ï¿½ Fundos Profundos</div>
     <div class="mm-row"><span class="mm-label">Ativar</span><div class="mm-toggle on" id="mm3tog" onclick="mmToggle(3)"></div></div>
-    <div class="mm-row"><span class="mm-label">Período</span><input type="number" class="mm-num" id="mm3per" value="34" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">períodos</span></div>
+    <div class="mm-row"><span class="mm-label">Perï¿½odo</span><input type="number" class="mm-num" id="mm3per" value="34" min="2" max="500"><span style="font-size:8px;color:var(--txt3);margin-left:4px">perï¿½odos</span></div>
     <div class="mm-row"><span class="mm-label">Cor</span><input type="color" class="mm-color" id="mm3cor" value="#22c55e"><span class="mm-label" style="margin-left:10px">Opacidade</span><input type="number" class="mm-op" id="mm3op" value="0.65" min="0.1" max="1" step="0.05"></div>
     <div class="mm-row">
       <span class="mm-label">Espessura</span><input type="number" class="mm-num" id="mm3lw" value="1.8" min="0.5" max="5" step="0.5"><span style="font-size:8px;color:var(--txt3);margin-left:4px">px</span>
-      <span class="mm-label" style="margin-left:10px">Traçado</span>
-      <select id="mm3dash" class="mm-sel"><option value="solid">Sólida</option><option value="dash">Tracejada</option><option value="dot" selected>Pontilhada</option></select>
+      <span class="mm-label" style="margin-left:10px">Traï¿½ado</span>
+      <select id="mm3dash" class="mm-sel"><option value="solid">Sï¿½lida</option><option value="dash">Tracejada</option><option value="dot" selected>Pontilhada</option></select>
     </div>
     <div class="mm-row"><span class="mm-label">Tipo curva</span><select id="mm3curva" class="mm-sel" style="flex:1"><option value="linear">Linear (reta)</option><option value="smooth">Smooth (suave)</option><option value="bezier" selected>Bezier</option><option value="step">Step (degrau)</option></select></div>
+    <div class="mm-row"><span class="mm-label">CÃ­rculos</span><div class="mm-toggle on" id="mm3mark" onclick="this.classList.toggle('on')"></div><span style="font-size:8px;color:var(--txt3);margin-left:8px">Fundos profundos &lt;1.6x</span></div>
 
     <div style="font-size:8px;color:var(--txt3);text-align:right;margin-top:6px">Config salva automaticamente</div>
     <div class="m-btns" style="margin-top:6px">
@@ -616,15 +619,15 @@ html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);font-famil
 </div>
 
 <div id="rodPopup">
-  <b>&#9313; Número da Rodada</b>
-  <small>Vela: <span id="rpV">—</span> &nbsp;·&nbsp; <span id="rpM">—</span></small>
-  <input type="number" id="rpN" placeholder="Nº da rodada..." min="1">
-  <em>Enter confirma &nbsp;·&nbsp; Esc cancela</em>
+  <b>&#9313; Nï¿½mero da Rodada</b>
+  <small>Vela: <span id="rpV">ï¿½</span> &nbsp;ï¿½&nbsp; <span id="rpM">ï¿½</span></small>
+  <input type="number" id="rpN" placeholder="Nï¿½ da rodada..." min="1">
+  <em>Enter confirma &nbsp;ï¿½&nbsp; Esc cancela</em>
 </div>
 <div class="modal-bg" id="rodAviso">
   <div class="modal" style="width:300px">
-    <div class="m-title" style="color:var(--pk)">&#9888; Atenção</div>
-    <p style="font-size:10px;color:var(--txt2);line-height:1.8">Desativar irá <b style="color:var(--pk)">remover todas as rodadas</b> do gráfico. Continuar?</p>
+    <div class="m-title" style="color:var(--pk)">&#9888; Atenï¿½ï¿½o</div>
+    <p style="font-size:10px;color:var(--txt2);line-height:1.8">Desativar irï¿½ <b style="color:var(--pk)">remover todas as rodadas</b> do grï¿½fico. Continuar?</p>
     <div class="m-btns" style="margin-top:10px">
       <button class="mbtn mb-r" onclick="confirmarDesativarRodada()">&#10005; Sim, remover</button>
       <button class="mbtn mb-c" onclick="document.getElementById('rodAviso').classList.remove('open')">Cancelar</button>
@@ -640,7 +643,7 @@ const ctx    = canvas.getContext('2d');
 const cwrap  = document.getElementById('cwrap');
 const canvasRaw = document.getElementById('cvRaw');
 const ctxRaw    = canvasRaw.getContext('2d');
-const G2_CHART_TOP = 112; // deixa o Gráfico 2 abaixo dos blocos de minutos sem pagar
+const G2_CHART_TOP = 112; // deixa o Grï¿½fico 2 abaixo dos blocos de minutos sem pagar
 const G2_CHART_BOTTOM = 18;
 let graficoAtivo = 1;
 const rawWrap   = document.getElementById('rawWrap');
@@ -652,7 +655,7 @@ const CFG = {
   showN: 60,
   showMA: true,
   sinalMMOn: true,
-  // MM1 — Amarela (arco de virada nos fundos)
+  // MM1 â€” Amarela (arco de virada nos fundos)
   mm1On:   true,
   mm1Per:  5,
   mm1Cor:  '#eab308',
@@ -660,7 +663,8 @@ const CFG = {
   mm1Lw:   2.0,
   mm1Dash: [4,5],
   mm1Curva: 'smooth',
-  // MM2 — Azul tracejada (linha reta pelos fundos de reversão)
+  mm1Arc:  true,   // mostrar arcos
+  // MM2 â€” Azul tracejada (linha reta pelos fundos de reversÃ£o)
   mm2On:   true,
   mm2Per:  14,
   mm2Cor:  '#3b82f6',
@@ -668,7 +672,8 @@ const CFG = {
   mm2Lw:   2.0,
   mm2Dash: [8,4],
   mm2Curva: 'linear',
-  // MM3 — Verde (fundo profundo onde azul não alcança)
+  mm2Line:  true,   // mostrar linha reta + cÃ­rculos
+  // MM3 â€” Verde (fundo profundo onde azul nÃ£o alcanÃ§a)
   mm3On:   true,
   mm3Per:  34,
   mm3Cor:  '#22c55e',
@@ -676,6 +681,7 @@ const CFG = {
   mm3Lw:   1.8,
   mm3Dash: [3,4],
   mm3Curva: 'bezier',
+  mm3Mark:  true,   // mostrar cÃ­rculos nos fundos profundos
   // Alertas de fundo
   alertaFundo: true,
   alertaAudio: true,
@@ -688,7 +694,7 @@ let zoomLevel  = 1.0;
 // Pan vertical (scroll)
 let vertOffset = 0;
 
-// Escala direita arrastável
+// Escala direita arrastï¿½vel
 let scaleW = 60;
 let scaleResizing = false, scaleRX = 0, scaleRW = 0;
 
@@ -705,26 +711,26 @@ const srv = { url:'https://aviator-trader-v2.onrender.com', get:'/api/velas', po
 let pollingTimer = null, simInt = null, modoFonte = 'simulado';
 let ultimaChave = null;
 
-// Áudio
+// ï¿½udio
 let audioCtx = null;
 
-// Numeração de rodadas
+// Numeraï¿½ï¿½o de rodadas
 let rodadaConfig = {
-  velaNro:  1,      // índice da vela encontrada (1-based) — calculado automaticamente
-  rodadaNro: 1,     // número da rodada correspondente
-  multRef:   null,  // multiplicador da vela de referência (para encontrá-la)
-  horario:   '',    // horário da vela de referência (HH:MM) — só exibição
+  velaNro:  1,      // ï¿½ndice da vela encontrada (1-based) ï¿½ calculado automaticamente
+  rodadaNro: 1,     // nï¿½mero da rodada correspondente
+  multRef:   null,  // multiplicador da vela de referï¿½ncia (para encontrï¿½-la)
+  horario:   '',    // horï¿½rio da vela de referï¿½ncia (HH:MM) ï¿½ sï¿½ exibiï¿½ï¿½o
   ativo:     false
 };
 function getRodada(idxVela){
   // Primeiro usa a rodada que veio no arquivo exportado do TipMiner.
-  // Assim o Gráfico 1 e o Gráfico 2 já abrem com o histórico real importado.
+  // Assim o Grï¿½fico 1 e o Grï¿½fico 2 jï¿½ abrem com o histï¿½rico real importado.
   const p = pts[idxVela];
   if(p && p.rodada !== undefined && p.rodada !== null && String(p.rodada).trim() !== '') return p.rodada;
   if(!rodadaConfig.ativo) return null;
   const ref = rodadaConfig.velaNro - 1; // 0-based
   const n = rodadaConfig.rodadaNro + (idxVela - ref);
-  return n > 0 ? n : null; // não mostra rodadas negativas
+  return n > 0 ? n : null; // nï¿½o mostra rodadas negativas
 }
 
 // ----------- SERVIDOR -----------
@@ -737,7 +743,7 @@ function testar(){
   const url=document.getElementById('cfgUrl').value+document.getElementById('cfgGet').value+'?painel=1&limit=1';
   setSrv('testando...','var(--am)');
   fetch(url).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(d=>setSrv('OK — '+JSON.stringify(d).slice(0,60),'var(--gn)'))
+    .then(d=>setSrv('OK ï¿½ '+JSON.stringify(d).slice(0,60),'var(--gn)'))
     .catch(e=>setSrv('erro: '+e.message,'var(--pk)'));
 }
 
@@ -759,9 +765,9 @@ function desconectar(silencioso){
   if(!silencioso){
     modoFonte='simulado';
     setWs('err','SIMULADO');
-    setSrv('parado — histórico preservado','var(--txt2)');
+    setSrv('parado ï¿½ histï¿½rico preservado','var(--txt2)');
     document.getElementById('oSrc').textContent='Simulado';
-    // Histórico local é mantido intacto — não limpa pts
+    // Histï¿½rico local ï¿½ mantido intacto ï¿½ nï¿½o limpa pts
     iniciarSim();
   }
 }
@@ -777,10 +783,10 @@ function buscar(primeiro){
         if(simInt){clearInterval(simInt);simInt=null;}
         modoFonte='extensao';
         setWs('ok','ONLINE');
-        setSrv('Conectado — aguardando velas novas — '+srv.url,'var(--gn)');
+        setSrv('Conectado ï¿½ aguardando velas novas ï¿½ '+srv.url,'var(--gn)');
         document.getElementById('oSrc').textContent='Render';
         document.getElementById('oSrc').style.color='var(--am)';
-        // Carrega histórico real do servidor — PRESERVA velas já salvas no localStorage
+        // Carrega histï¿½rico real do servidor ï¿½ PRESERVA velas jï¿½ salvas no localStorage
         if(lista&&lista.length){
           // Coleta velas do servidor
           const velasSrv = [];
@@ -796,30 +802,30 @@ function buscar(primeiro){
           });
 
           if(pts.length === 0){
-            // Gráfico vazio: carrega tudo do servidor
+            // Grï¿½fico vazio: carrega tudo do servidor
             velasSrv.forEach(p=>push(p.val, p.time, p.rodada));
           } else {
-            // Já tem histórico local: mescla apenas velas novas do servidor
-            // Determina a última chave conhecida (rodada ou val+time)
+            // Jï¿½ tem histï¿½rico local: mescla apenas velas novas do servidor
+            // Determina a ï¿½ltima chave conhecida (rodada ou val+time)
             const ultimosRods = new Set(pts.filter(p=>p.rodada).map(p=>String(p.rodada).trim()));
             const ultimoTime = pts.length ? (pts[pts.length-1].time instanceof Date ? pts[pts.length-1].time.getTime() : new Date(pts[pts.length-1].time).getTime()) : 0;
             let adicionadas = 0;
             velasSrv.forEach(p=>{
               const rod = p.rodada ? String(p.rodada).trim() : null;
-              if(rod && ultimosRods.has(rod)) return; // já existe
+              if(rod && ultimosRods.has(rod)) return; // jï¿½ existe
               const t = p.time instanceof Date ? p.time.getTime() : p.time.getTime();
-              if(!rod && t <= ultimoTime) return; // vela mais antiga que o histórico local
+              if(!rod && t <= ultimoTime) return; // vela mais antiga que o histï¿½rico local
               push(p.val, p.time, p.rodada);
               adicionadas++;
             });
             if(adicionadas > 0){
-              setSrv('Reconectado — +'+adicionadas+' velas novas — '+srv.url,'var(--gn)');
+              setSrv('Reconectado ï¿½ +'+adicionadas+' velas novas ï¿½ '+srv.url,'var(--gn)');
             }
           }
           removerDuplicadasHistorico();
           salvarHistoricoLocal();
         }
-        // Mantém a posição atual do gráfico (não reseta viewOffset ao reconectar)
+        // Mantï¿½m a posiï¿½ï¿½o atual do grï¿½fico (nï¿½o reseta viewOffset ao reconectar)
         draw();
         pollingTimer=setInterval(()=>buscar(false),srv.poll);
       } else {
@@ -837,12 +843,12 @@ function buscar(primeiro){
     })
     .catch(e=>{
       if(primeiro){
-        setSrv('erro: '+e.message+' — tentando reconectar...','var(--pk)');
+        setSrv('erro: '+e.message+' ï¿½ tentando reconectar...','var(--pk)');
         setWs('am','RECONECTANDO');
-        // Ao falhar reconexão, mantém histórico local intacto e tenta novamente
+        // Ao falhar reconexï¿½o, mantï¿½m histï¿½rico local intacto e tenta novamente
         setTimeout(()=>buscar(true),5000);
       } else {
-        // Polling falhou (desconectado temporariamente): indica no status mas mantém velas
+        // Polling falhou (desconectado temporariamente): indica no status mas mantï¿½m velas
         setWs('am','SEM SINAL');
         // Tenta reconectar automaticamente em 8s
         if(pollingTimer){ clearInterval(pollingTimer); pollingTimer=null; }
@@ -876,7 +882,7 @@ function mesmaVelaTempoReal(mult,t,rodada){
     return true;
   }
 
-  // 3) Verifica também penúltima (proteção extra contra burst)
+  // 3) Verifica tambï¿½m penï¿½ltima (proteï¿½ï¿½o extra contra burst)
   if(pts.length >= 2){
     const prev = pts[pts.length-2];
     if(mesmaRodada(prev.rodada, rodada)) return true;
@@ -907,7 +913,7 @@ function removerDuplicadasHistorico(){
       if(vistosRodada.has(rod)) return; // descarta duplicata por rodada
       vistosRodada.add(rod);
     } else {
-      // Sem rodada: descarta se valor idêntico ao anterior e timestamp muito próximo (<5s)
+      // Sem rodada: descarta se valor idï¿½ntico ao anterior e timestamp muito prï¿½ximo (<5s)
       if(limpo.length > 0){
         const prev = limpo[limpo.length-1];
         const dt = Math.abs(new Date(p.time).getTime() - new Date(prev.time).getTime());
@@ -920,13 +926,13 @@ function removerDuplicadasHistorico(){
   recalcularScores();
 }
 function push(val,time,rodada){
-  // Garante timestamp válido sempre
+  // Garante timestamp vï¿½lido sempre
   let t = time instanceof Date && !isNaN(time) ? time : new Date();
 
-  // LÓGICA VR5 DO GRÁFICO 2 POR PONTOS:
+  // Lï¿½GICA VR5 DO GRï¿½FICO 2 POR PONTOS:
   // abaixo de 10.00x = -1 linha
   // se vier depois de vela abaixo de 10x = +10 linhas
-  // se vier 10x+ colado em sequência = +1 linha
+  // se vier 10x+ colado em sequï¿½ncia = +1 linha
   const mult = parseFloat(val);
   const anterior = pts.length ? (pts[pts.length-1].score || 0) : 0;
   const ultimoFoi10 = pts.length ? ((parseFloat(pts[pts.length-1].val) || 0) >= 10) : false;
@@ -940,7 +946,7 @@ function push(val,time,rodada){
 
   const score = anterior + delta;
 
-  // val continua sendo o multiplicador real; score é a altura do gráfico 2
+  // val continua sendo o multiplicador real; score ï¿½ a altura do grï¿½fico 2
   pts.push({val:mult, score, delta, time:t, rodada: rodada ?? null});
   if(pts.length>MAX_HIST)pts.shift();
   return true;
@@ -948,7 +954,7 @@ function push(val,time,rodada){
 
 
 // ------------------------------------------------------------
-// BARRAS DE ROLAGEM — Gráfico 2
+// BARRAS DE ROLAGEM ï¿½ Grï¿½fico 2
 // ------------------------------------------------------------
 (function(){
   let hDrag=false, hDragX=0, hDragOff0=0;
@@ -1025,7 +1031,7 @@ function push(val,time,rodada){
   });
   document.addEventListener('mouseup',()=>{ hDrag=false; vDrag=false; });
 
-  // Clicar na trilha horizontal (pula para posição)
+  // Clicar na trilha horizontal (pula para posiï¿½ï¿½o)
   document.getElementById('scrollHTrack').addEventListener('click',e=>{
     const track=e.currentTarget;
     const thumb=document.getElementById('scrollHThumb');
@@ -1039,17 +1045,17 @@ function push(val,time,rodada){
     draw(); updateScrollBars();
   });
 
-  // Expõe para uso no draw
+  // Expï¿½e para uso no draw
   window._updateScrollBars = updateScrollBars;
 })();
 
 // ------------------------------------------------------------
-// LINHA DE SUPORTE DINÂMICA
-// Detecta o mínimo local das últimas N velas
-// Suporte Dinâmico removido — apenas Médias Móveis
+// LINHA DE SUPORTE DINï¿½MICA
+// Detecta o mï¿½nimo local das ï¿½ltimas N velas
+// Suporte Dinï¿½mico removido ï¿½ apenas Mï¿½dias Mï¿½veis
 
 // ------------------------------------------------------------
-// QUADRADINHOS SIDEBAR — última vela de cada cor
+// QUADRADINHOS SIDEBAR ï¿½ ï¿½ltima vela de cada cor
 // ------------------------------------------------------------
 
 
@@ -1069,7 +1075,7 @@ function atualizarUltimas(val, time){
   const t = time instanceof Date ? time : new Date(time||Date.now());
   const fmtT = t2 => {
     try{ return t2.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
-    catch(_){ return '—'; }
+    catch(_){ return 'ï¿½'; }
   };
   if(v >= 50){ ULTIMAS.ouro = {v,t}; }
   else if(v >= 10){ ULTIMAS.rosa = {v,t}; }
@@ -1091,7 +1097,7 @@ function atualizarUltimas(val, time){
 // Converte timestamp para Date com fuso correto (America/Sao_Paulo)
 function parseTsBrasilia(timestamp){
   if(!timestamp) return new Date();
-  // Se for string de hora simples tipo "20:43:31" (sem data), usa data de hoje em Brasília
+  // Se for string de hora simples tipo "20:43:31" (sem data), usa data de hoje em Brasï¿½lia
   if(typeof timestamp === 'string' && /^\d{1,2}:\d{2}(:\d{2})?$/.test(timestamp.trim())){
     const agora = new Date();
     const partes = timestamp.trim().split(':');
@@ -1105,20 +1111,20 @@ function parseTsBrasilia(timestamp){
 function receberVela(val,timestamp,fonte,rodada){
   const tFinal = parseTsBrasilia(timestamp);
 
-  // Anti-fantasma: bloqueia vela duplicada para TODAS as fontes (não só extensao)
+  // Anti-fantasma: bloqueia vela duplicada para TODAS as fontes (nï¿½o sï¿½ extensao)
   if(mesmaVelaTempoReal(val,tFinal,rodada)){
     scheduleDraw();
     return false;
   }
 
-  // Validação extra: ignora multiplicadores absurdos (> 10000x são claramente erros da API)
+  // Validaï¿½ï¿½o extra: ignora multiplicadores absurdos (> 10000x sï¿½o claramente erros da API)
   const v = parseFloat(val);
   if(isNaN(v) || v <= 0 || v > 10000){
     return false;
   }
 
   push(val, tFinal, rodada);
-  // Atualiza quadradinhos de última vela por cor
+  // Atualiza quadradinhos de ï¿½ltima vela por cor
   atualizarUltimas(val, tFinal);
   document.getElementById('sCot').textContent=val.toFixed(2)+'x';
   document.getElementById('sCot').style.color=val>=50?'#facc15':val>=10?'#22c55e':'#ef4444';
@@ -1138,12 +1144,12 @@ function addLog(val,tag){
   const lbl=tag==='EXT'?'EXT':v>=10?'ROSA':v>=2?'ROXO':'CIANO';
   const area=document.getElementById('logArea');
   const row=document.createElement('div'); row.className='log-row';
-  row.innerHTML=`<div class="ldot" style="background:${col}"></div><span class="lt">${t}</span><span class="lv" style="color:${col}">${v>0?v.toFixed(2)+'x':'—'}</span><span class="ltag ${cls}">${lbl}</span>`;
+  row.innerHTML=`<div class="ldot" style="background:${col}"></div><span class="lt">${t}</span><span class="lv" style="color:${col}">${v>0?v.toFixed(2)+'x':'ï¿½'}</span><span class="ltag ${cls}">${lbl}</span>`;
   area.insertBefore(row,area.firstChild);
   while(area.children.length>60)area.removeChild(area.lastChild);
 }
 
-// ----------- ÁUDIO -----------
+// ----------- ï¿½UDIO -----------
 function getAC(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();return audioCtx;}
 function beep(notes,type='sine',vol=0.15){
   try{const ac=getAC();notes.forEach(([f,d,dur])=>{const o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.type=type;o.frequency.value=f;const t=ac.currentTime+d;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.04);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.start(t);o.stop(t+dur);});}catch(_){}
@@ -1193,7 +1199,7 @@ function getViewSub(){
   return result;
 }
 function getViewSubExt(extra){
-  // Sub com pontos extras à frente (para MM look-ahead)
+  // Sub com pontos extras ï¿½ frente (para MM look-ahead)
   const n=getVisN();
   const end=Math.min(pts.length, Math.max(n,pts.length-viewOffset)+(extra||0));
   const start=Math.max(0,end-n-(extra||0));
@@ -1225,10 +1231,10 @@ function getScale(sub,W,H){
     };
   }
 
-  // Escala Y flexível: mostra 100% dos valores sem comprimir
+  // Escala Y flexï¿½vel: mostra 100% dos valores sem comprimir
   const sortedV=[...vals].sort((a,b)=>a-b);
   const absMax=Math.max(...vals,10);
-  // Usa sempre o valor real máximo com 8% de margem acima
+  // Usa sempre o valor real mï¿½ximo com 8% de margem acima
   const maxV = absMax * 1.08;
   const minV=0.7;
   const logMin=Math.log10(minV), logMax=Math.log10(maxV);
@@ -1244,10 +1250,10 @@ function getScale(sub,W,H){
 // ----------- DRAW -----------
 function col(v){
   v=parseFloat(v)||0;
-  if(v>=50) return '#facc15';     // ?? ouro  — 50x+
-  if(v>=10) return '#f472b6';     // ?? rosa  — 10x–49x
-  if(v>=2)  return '#a855f7';     // ?? roxo  — 2x–9.99x
-  return '#06b6d4';               // ?? ciano — abaixo de 2x (ProfitChart style)
+  if(v>=50) return '#facc15';     // ?? ouro  ï¿½ 50x+
+  if(v>=10) return '#f472b6';     // ?? rosa  ï¿½ 10xï¿½49x
+  if(v>=2)  return '#a855f7';     // ?? roxo  ï¿½ 2xï¿½9.99x
+  return '#06b6d4';               // ?? ciano ï¿½ abaixo de 2x (ProfitChart style)
 }
 function colAlpha(v,a){
   v=parseFloat(v)||0;
@@ -1267,17 +1273,17 @@ function draw(){
   if(sub.length<2)return;
   const {sx,sy,yToV,minV,maxV,cW,cH,isScore}=getScale(sub,W,H);
 
-  // GRID — estilo ProfitChart com linhas de referência coloridas
+  // GRID ï¿½ estilo ProfitChart com linhas de referï¿½ncia coloridas
   ctx.font='8px JetBrains Mono,monospace'; ctx.textAlign='left';
   const gridLevels = [1,1.5,2,3,5,10,20,50,100,200,500,1000,2000,5000];
   gridLevels.filter(v=>v>=minV&&v<=maxV*1.05).forEach(v=>{
     const py=sy(v);
     if(v===10){
-      // Linha rosa de referência (10x) — mais visível
+      // Linha rosa de referï¿½ncia (10x) ï¿½ mais visï¿½vel
       ctx.strokeStyle='rgba(244,114,182,.18)';
       ctx.lineWidth=1; ctx.setLineDash([6,4]);
     } else if(v===2){
-      // Linha roxa de referência (2x)
+      // Linha roxa de referï¿½ncia (2x)
       ctx.strokeStyle='rgba(168,85,247,.15)';
       ctx.lineWidth=0.8; ctx.setLineDash([4,6]);
     } else if(v===1.5){
@@ -1299,14 +1305,14 @@ function draw(){
   ctx.beginPath();ctx.moveTo(bx,0);ctx.lineTo(bx,H);ctx.stroke();
   for(let gy=H/2-15;gy<=H/2+15;gy+=6){ctx.fillStyle='rgba(74,110,148,.5)';ctx.fillRect(bx-1,gy,3,3);}
 
-  // MONTANHA — bezier segmentada por cor
+  // MONTANHA ï¿½ bezier segmentada por cor
   const yBase=sy(minV);
   for(let i=1;i<sub.length;i++){
     const p0=sub[i-1],p1=sub[i];
     const x0=sx(i-1),y0=sy(yVal(p0)),x1=sx(i),y1=sy(yVal(p1));
     const vm=Math.max(p0.val,p1.val);
     const cpx1=x0+(x1-x0)*0.42,cpy1=y0,cpx2=x0+(x1-x0)*0.58,cpy2=y1;
-    // área
+    // ï¿½rea
     ctx.beginPath();ctx.moveTo(x0,yBase);ctx.lineTo(x0,y0);
     ctx.bezierCurveTo(cpx1,cpy1,cpx2,cpy2,x1,y1);
     ctx.lineTo(x1,yBase);ctx.closePath();
@@ -1317,7 +1323,7 @@ function draw(){
     ctx.strokeStyle=col(vm);ctx.lineWidth=2;ctx.stroke();
   }
 
-  // PONTOS DE DESTAQUE — velas rosa/ouro com círculo (ProfitChart)
+  // PONTOS DE DESTAQUE ï¿½ velas rosa/ouro com cï¿½rculo (ProfitChart)
   sub.forEach((p,i)=>{
     if(p.val >= 10){
       const x=sx(i), y=sy(yVal(p));
@@ -1338,13 +1344,13 @@ function draw(){
   });
 
 
-  // MÉDIAS MÓVEIS — SEMPRE VISÍVEIS
+  // Mï¿½DIAS Mï¿½VEIS ï¿½ SEMPRE VISï¿½VEIS
   if(CFG.showMA && pts.length>=3){
     const allVals=pts.map(p=>yVal(p));
     const subStart=Math.max(0,pts.length-viewOffset-sub.length);
     const hexToRgb=h=>{const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return r+','+g+','+b;};
 
-    // ----------- 3 EMAs SEMPRE VISÍVEIS -----------
+    // ----------- 3 EMAs SEMPRE VISï¿½VEIS -----------
     function drawEmaLine(per,cor,op,lw,dash){
       if(pts.length<per) return;
       const k=2/(per+1); let e=allVals[0];
@@ -1360,11 +1366,11 @@ function draw(){
       ctx.stroke();
       ctx.setLineDash([]);ctx.restore();
     }
-    drawEmaLine(CFG.mm1Per,CFG.mm1Cor,0.8,1.8,CFG.mm1Dash);      // Amarela
-    drawEmaLine(CFG.mm2Per,CFG.mm2Cor,0.7,1.8,CFG.mm2Dash);      // Azul
-    drawEmaLine(CFG.mm3Per,CFG.mm3Cor,0.65,1.5,CFG.mm3Dash);     // Verde
+    drawEmaLine(CFG.mm1Per,CFG.mm1Cor,CFG.mm1Op,CFG.mm1Lw,CFG.mm1Dash);
+    drawEmaLine(CFG.mm2Per,CFG.mm2Cor,CFG.mm2Op,CFG.mm2Lw,CFG.mm2Dash);
+    drawEmaLine(CFG.mm3Per,CFG.mm3Cor,CFG.mm3Op,CFG.mm3Lw,CFG.mm3Dash);
 
-    // ----------- FUNDOS: mínimos locais SIMPLES -----------
+    // ----------- FUNDOS: mï¿½nimos locais SIMPLES -----------
     const fundos=[];
     for(let i=2;i<pts.length-2;i++){
       const v=pts[i].val;
@@ -1374,29 +1380,28 @@ function draw(){
       }
     }
 
-    // ----------- ARCOS AMARELOS em TODOS os fundos -----------
-    if(CFG.mm1On && fundos.length>=1){
+    // â•â•â•â•â•â•â•â•â•â•â• ARCOS AMARELOS â€” sÃ³ nos fundos COM rosa prÃ³xima â•â•â•â•â•â•â•â•â•â•â•
+    if(CFG.mm1On && CFG.mm1Arc && fundos.length>=1){
       const arc=Math.max(24,(sy(1.0)-sy(5.0))*0.4)*2;
-      fundos.forEach(f=>{
+      fundos.filter(f=>f.temRosa).forEach(f=>{  // sÃ³ fundos com rosa
         const fi=f.index-subStart;
         if(fi>=0&&fi<sub.length){
           const fx=sx(fi),fy=sy(f.val);
-          const destaque=f.temRosa;
           ctx.save();
-          ctx.strokeStyle=destaque?'rgba(245,158,11,0.95)':'rgba(234,179,8,0.55)';
-          ctx.lineWidth=destaque?3:2;ctx.setLineDash([3,2]);
+          ctx.strokeStyle='rgba(245,158,11,0.95)';
+          ctx.lineWidth=3;ctx.setLineDash([3,2]);
           ctx.beginPath();ctx.arc(fx,fy+arc*0.55,arc,Math.PI*0.7,Math.PI*2.3,false);ctx.stroke();
           ctx.setLineDash([]);
           ctx.beginPath();ctx.moveTo(fx,fy+arc*0.45);
           ctx.lineTo(fx-10,fy+arc*1.15);ctx.lineTo(fx+10,fy+arc*1.15);
-          ctx.closePath();ctx.fillStyle=destaque?'rgba(245,158,11,0.95)':'rgba(234,179,8,0.55)';ctx.fill();
+          ctx.closePath();ctx.fillStyle='rgba(245,158,11,0.95)';ctx.fill();
           ctx.restore();
         }
       });
     }
 
-    // ----------- LINHA RETA AZUL (regressão) + CÍRCULOS -----------
-    if(CFG.mm2On && fundos.length>=2){
+    // â•â•â•â•â•â•â•â•â•â•â• LINHA RETA AZUL (regressÃ£o) + CÃRCULOS â•â•â•â•â•â•â•â•â•â•â•
+    if(CFG.mm2On && CFG.mm2Line && fundos.length>=2){
       const uf=fundos.slice(-8);
       let sx_=0,sy_=0,sx2=0,sxy=0;
       uf.forEach(f=>{sx_+=f.index;sy_+=f.val;sx2+=f.index*f.index;sxy+=f.index*f.val;});
@@ -1423,8 +1428,8 @@ function draw(){
       });
     }
 
-    // ----------- CÍRCULOS VERDES nos fundos profundos -----------
-    if(CFG.mm3On){
+    // â•â•â•â•â•â•â•â•â•â•â• CÃRCULOS VERDES nos fundos profundos â•â•â•â•â•â•â•â•â•â•â•
+    if(CFG.mm3On && CFG.mm3Mark){
       fundos.filter(f=>f.val<1.6).forEach(f=>{const fi=f.index-subStart;
         if(fi>=0&&fi<sub.length){
           const fx=sx(fi),fy=sy(f.val);
@@ -1455,17 +1460,17 @@ function draw(){
           ctx.fillStyle=cor;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='center';
           ctx.fillText(lbl,fx,fy-20);
           const fk='a_'+uf2.index;
-          if(!_alertasDisparados.has(fk)){_alertasDisparados.add(fk);if(_alertasDisparados.size>50)_alertasDisparados.clear();showAlert(lbl+' — '+uf2.val.toFixed(2)+'x',cor,7000);tocarAlerta();}
+          if(!_alertasDisparados.has(fk)){_alertasDisparados.add(fk);if(_alertasDisparados.size>50)_alertasDisparados.clear();showAlert(lbl+' ï¿½ '+uf2.val.toFixed(2)+'x',cor,7000);tocarAlerta();}
         }
       }
     }
   }
   // LINHAS DE ZONA FIXAS REMOVIDAS
-  // Agora o gráfico abre limpo: sem linhas 1x/2x/10x automáticas.
+  // Agora o grï¿½fico abre limpo: sem linhas 1x/2x/10x automï¿½ticas.
   // Use as ferramentas da barra superior para marcar somente onde desejar.
 
-  // BOLINHAS + NÚMERO DA RODADA
-  // Calcula índice real no array pts para cada ponto do sub
+  // BOLINHAS + Nï¿½MERO DA RODADA
+  // Calcula ï¿½ndice real no array pts para cada ponto do sub
   const subStart = sub._start !== undefined ? sub._start : Math.max(0,pts.length-viewOffset-sub.length);
 
   sub.forEach((p,i)=>{
@@ -1476,7 +1481,7 @@ function draw(){
     ctx.strokeStyle=v>=10?'#be185d':v>=2?'#7e22ce':'#0891b2';ctx.lineWidth=.8;ctx.stroke();
     if(v>=10){ctx.fillStyle=col(v);ctx.font='bold '+(v>=100?8:7)+'px JetBrains Mono,monospace';ctx.textAlign='center';ctx.fillText(v.toFixed(v>=100?0:1)+'x',x,y-r-5);}
 
-    // RODADA — oculta, aparece no hover (30px), ACIMA da bolinha
+    // RODADA ï¿½ oculta, aparece no hover (30px), ACIMA da bolinha
     const rodN=getRodada(subStart+i);
     if(rodN!==null&&rodN>0&&Math.hypot(x-_mx,y-_my)<35){
       const rodCol='#fff', rodBg='rgba(6,9,15,0.9)', rodBdr=v>=10?'#f472b6':v>=2?'#a855f7':'#06b6d4';
@@ -1489,7 +1494,7 @@ function draw(){
       ctx.strokeStyle=rodBdr; ctx.lineWidth=1.2; ctx.beginPath(); ctx.roundRect(bx,by,bw,bh,4); ctx.stroke();
       ctx.fillStyle=rodCol; ctx.fillText(txt,x,by+13);
 
-      // horário da vela de referência (só naquela vela específica)
+      // horï¿½rio da vela de referï¿½ncia (sï¿½ naquela vela especï¿½fica)
       if(rodadaConfig.horario && (rodadaConfig.velaNro-1) === (subStart+i)){
         ctx.font='bold 9px JetBrains Mono,monospace';
         ctx.fillStyle='rgba(255,255,255,0.75)';
@@ -1500,8 +1505,8 @@ function draw(){
 
 
 
-  // LINHA AUTOMÁTICA DA COTAÇÃO ATUAL REMOVIDA
-  // Nenhuma linha fixa fica no gráfico sem você desenhar.
+  // LINHA AUTOMï¿½TICA DA COTAï¿½ï¿½O ATUAL REMOVIDA
+  // Nenhuma linha fixa fica no grï¿½fico sem vocï¿½ desenhar.
 
   // DESENHOS
   drawings.forEach((d,di)=>{
@@ -1511,7 +1516,7 @@ function draw(){
     const sc=sel?'#fff':dc;
     ctx.strokeStyle=sc;ctx.lineWidth=sel?2:1.4;
 
-    // Reposiciona âncoras temporais: recalcula X/Y a partir do valor guardado
+    // Reposiciona ï¿½ncoras temporais: recalcula X/Y a partir do valor guardado
     if(d.a1 && d.a2){
       const subStart_d = Math.max(0,pts.length-viewOffset-sub.length);
       const step_d = (W-12-scaleW)/(sub.length-1||1);
@@ -1567,7 +1572,7 @@ function draw(){
         ctx.beginPath();ctx.arc(mx,my,8,0,Math.PI*2);ctx.stroke();
         ctx.fillStyle=ctx.strokeStyle;ctx.font='bold 9px JetBrains Mono,monospace';ctx.textAlign='left';
         const rod=getRodada(d.idxGlobal) || (d.idxGlobal+1);
-        ctx.fillText('MARCA #'+rod+' · '+fmtMult(p.val), Math.min(mx+10,W-scaleW-120), Math.max(G2_CHART_TOP+12,my-10));
+        ctx.fillText('MARCA #'+rod+' ï¿½ '+fmtMult(p.val), Math.min(mx+10,W-scaleW-120), Math.max(G2_CHART_TOP+12,my-10));
         ctx.restore();
       }
     } else if(d.type==='text'&&d.txt){
@@ -1586,13 +1591,13 @@ function draw(){
     ctx.setLineDash([]);
   }
 
-  // X LABELS — barra inferior
+  // X LABELS ï¿½ barra inferior
   const s3=[sub[0],sub[Math.floor(sub.length/2)],sub[sub.length-1]].filter(Boolean);
   ['xL','xM','xR'].forEach((id,i)=>{const p=s3[i];if(p&&p.time&&!isNaN(p.time))document.getElementById(id).textContent=p.time.toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit'});});
   document.getElementById('xZoom').textContent = getVisN()+'v / '+pts.length+'t';
   document.getElementById('xslider').value=CFG.showN;
 
-  // -- NUMERAÇÃO NO CANVAS: marcadores no eixo X + destaque hover --
+  // -- NUMERAï¿½ï¿½O NO CANVAS: marcadores no eixo X + destaque hover --
   const _subStart = sub._start !== undefined ? sub._start : Math.max(0, pts.length - viewOffset - sub.length);
   const _skipX = Math.max(1, Math.floor(sub.length / 8));
   const _chartTop    = graficoAtivo === 2 ? G2_CHART_TOP    : 44;
@@ -1643,18 +1648,18 @@ function draw(){
   }
   ctx.restore();
 
-  // -- COLUNA Y: badge do último valor + badge do cursor --
+  // -- COLUNA Y: badge do ï¿½ltimo valor + badge do cursor --
   ctx.save();
   if(sub.length > 0){
     const lastP = sub[sub.length - 1];
     const lastY = sy(yVal(lastP));
     const lastV = lastP.val;
-    // Linha horizontal tracejada da última cotação
+    // Linha horizontal tracejada da ï¿½ltima cotaï¿½ï¿½o
     ctx.strokeStyle = 'rgba(168,85,247,.4)';
     ctx.lineWidth = 0.8; ctx.setLineDash([3,5]);
     ctx.beginPath(); ctx.moveTo(12, lastY); ctx.lineTo(W - scaleW, lastY); ctx.stroke();
     ctx.setLineDash([]);
-    // Badge fixo da última cotação na coluna Y
+    // Badge fixo da ï¿½ltima cotaï¿½ï¿½o na coluna Y
     const badgeX = W - scaleW + 2;
     const badgeTxt = lastV.toFixed(2) + 'x';
     ctx.font = 'bold 9px JetBrains Mono,monospace';
@@ -1667,7 +1672,7 @@ function draw(){
 
   // -- CROSSHAIR DO CURSOR + TOOLTIP NO CANVAS --
   if(_mx > 0 && _my > 0 && !isPanning && !dActive && _mx < W - scaleW && _my > _chartTop && _my < H - _chartBottom) {
-    // Snapa para a vela mais próxima pelo eixo X
+    // Snapa para a vela mais prï¿½xima pelo eixo X
     const _ttStep = (W - 12 - scaleW) / (sub.length - 1 || 1);
     const _ttIdx  = Math.max(0, Math.min(sub.length-1, Math.round((_mx - 12) / _ttStep)));
     const _ttP    = sub[_ttIdx];
@@ -1688,7 +1693,7 @@ function draw(){
     ctx.beginPath(); ctx.moveTo(12, _ttY); ctx.lineTo(W - scaleW, _ttY); ctx.stroke();
     ctx.setLineDash([]);
 
-    // -- TOOLTIP NO CANVAS — caixa flutuante perto do cursor --
+    // -- TOOLTIP NO CANVAS ï¿½ caixa flutuante perto do cursor --
     ctx.save();
     const _line1 = _ttVal.toFixed(2) + 'x';
     const _line2 = '#' + _ttNum;
@@ -1716,17 +1721,17 @@ function draw(){
     ctx.fillStyle = _ttCor;
     ctx.textAlign = 'left';
     ctx.fillText(_line1, _ttBx + 10, _ttBy + 22);
-    // número da vela
+    // nï¿½mero da vela
     ctx.font = 'bold 9px JetBrains Mono,monospace';
     ctx.fillStyle = 'rgba(168,85,247,.8)';
     ctx.fillText(_line2, _ttBx + 10, _ttBy + 37);
-    // horário
+    // horï¿½rio
     ctx.font = '8px JetBrains Mono,monospace';
     ctx.fillStyle = 'rgba(74,110,148,.9)';
     ctx.fillText(_line3, _ttBx + 10, _ttBy + 51);
     ctx.restore();
 
-    // Badge na coluna Y — mostra o valor EXATO da vela sob o cursor (snap)
+    // Badge na coluna Y ï¿½ mostra o valor EXATO da vela sob o cursor (snap)
     const _hStep3 = (W - 12 - scaleW) / (sub.length - 1 || 1);
     const _hIdx3 = Math.max(0, Math.min(sub.length-1, Math.round((_mx - 12) / _hStep3)));
     const _snapP = sub[_hIdx3];
@@ -1741,7 +1746,7 @@ function draw(){
       const hbColor = !isScore
         ? (_snapVal>=50?'rgba(250,204,21,.95)':_snapVal>=10?'rgba(244,114,182,.95)':_snapVal>=2?'rgba(168,85,247,.95)':'rgba(6,182,212,.95)')
         : 'rgba(168,85,247,.95)';
-      // Linha horizontal até a coluna Y na altura da vela (não do mouse)
+      // Linha horizontal atï¿½ a coluna Y na altura da vela (nï¿½o do mouse)
       ctx.strokeStyle = hbColor.replace('.95',',.3').replace('rgba','rgba');
       ctx.lineWidth = 0.7; ctx.setLineDash([3,5]);
       ctx.beginPath(); ctx.moveTo(12, _snapY); ctx.lineTo(W - scaleW, _snapY); ctx.stroke();
@@ -1817,7 +1822,7 @@ cwrap.addEventListener('mousedown',e=>{
         popup.style.left=Math.min(rect.left+px+12,window.innerWidth-220)+'px';
         popup.style.top=Math.max(rect.top+py-130,8)+'px';
         popup.classList.add('show');
-        // guarda índice
+        // guarda ï¿½ndice
         popup.dataset.idx=ss+idx;
         setTimeout(()=>inp.select(),40);
       }
@@ -1830,7 +1835,7 @@ cwrap.addEventListener('mousedown',e=>{
     else{selIdx=-1;isPanning=true;panX0=pos.x;panOff0=viewOffset;document.getElementById('pov').style.display='block';}
     draw();return;
   }
-  // Botão esquerdo em qualquer outra ferramenta: arrastar para o passado/futuro
+  // Botï¿½o esquerdo em qualquer outra ferramenta: arrastar para o passado/futuro
   if(e.button===0 && drawTool!=='cursor'){
     isPanning=true;panX0=pos.x;panOff0=viewOffset;
     document.getElementById('pov').style.display='block';
@@ -1862,7 +1867,7 @@ cwrap.addEventListener('mousemove',e=>{
   if(scaleResizing){scaleW=Math.max(44,Math.min(200,scaleRW+(scaleRX-pos.x)));draw();return;}
   if(!onScaleBorder(pos)) cwrap.style.cursor='default';
   else cwrap.style.cursor='col-resize';
-  // TOOLTIP — desenhado no canvas pelo draw(), aqui só agenda redraw
+  // TOOLTIP ï¿½ desenhado no canvas pelo draw(), aqui sï¿½ agenda redraw
   if(!dActive&&!isPanning){
     scheduleDraw();
   }
@@ -1904,10 +1909,10 @@ cwrap.addEventListener('mouseup',e=>{
       const {sx:_sx,sy:_sy,yToV:_yToV}=getScale(getViewSub(),canvas.width,canvas.height);
       const subN=getViewSub().length;
       const step=(canvas.width-12-scaleW)/(subN-1||1);
-      // Converte pixel X ? índice relativo de vela (float)
+      // Converte pixel X ? ï¿½ndice relativo de vela (float)
       const xToRelIdx=px=>((px-12)/step);
       const subStart0=Math.max(0,pts.length-viewOffset-subN);
-      // Âncora temporal: guarda índice global + valor Y para tlines
+      // ï¿½ncora temporal: guarda ï¿½ndice global + valor Y para tlines
       const mkAnchor=(px,py)=>({
         idxGlobal: subStart0 + xToRelIdx(px),
         yVal: _yToV(py)
@@ -1952,7 +1957,7 @@ cwrap.addEventListener('mouseleave',()=>{
 });
 
 
-// Botão direito ou duplo clique sobre uma linha/marcação remove somente aquela linha
+// Botï¿½o direito ou duplo clique sobre uma linha/marcaï¿½ï¿½o remove somente aquela linha
 cwrap.addEventListener('contextmenu',e=>{
   e.preventDefault();
   const pos=getPos(e);
@@ -1994,10 +1999,10 @@ cwrap.addEventListener('wheel',e=>{
     const sub = getViewSub();
     const W = canvas.width;
     const step = (W - 12 - scaleW) / (sub.length - 1 || 1);
-    // Índice da vela sob o cursor (relativo ao fim)
+    // ï¿½ndice da vela sob o cursor (relativo ao fim)
     const cursorIdx = Math.round((pos.x - 12) / step);
     const subStart = Math.max(0, pts.length - viewOffset - sub.length);
-    const absIdx = subStart + cursorIdx; // índice absoluto em pts
+    const absIdx = subStart + cursorIdx; // ï¿½ndice absoluto em pts
 
     const oldZoom = zoomLevel;
     const fz = e.ctrlKey ? 1.25 : 1.12;
@@ -2035,9 +2040,9 @@ function clearDrawings(){drawings=[];selIdx=-1;salvarConfig();draw();}
 
 // -- CONFIG MM --------------------------
 function resetCfgMM(){
-  CFG.mm1On=true;  CFG.mm1Per=5;  CFG.mm1Cor='#eab308'; CFG.mm1Op=0.85; CFG.mm1Lw=2.0; CFG.mm1Dash=[4,5]; CFG.mm1Curva='smooth';
-  CFG.mm2On=true;  CFG.mm2Per=14; CFG.mm2Cor='#3b82f6'; CFG.mm2Op=0.75; CFG.mm2Lw=2.0; CFG.mm2Dash=[8,4]; CFG.mm2Curva='linear';
-  CFG.mm3On=true;  CFG.mm3Per=34; CFG.mm3Cor='#22c55e'; CFG.mm3Op=0.65; CFG.mm3Lw=1.8; CFG.mm3Dash=[3,4]; CFG.mm3Curva='bezier';
+  CFG.mm1On=true;  CFG.mm1Per=5;  CFG.mm1Cor='#eab308'; CFG.mm1Op=0.85; CFG.mm1Lw=2.0; CFG.mm1Dash=[4,5]; CFG.mm1Curva='smooth'; CFG.mm1Arc=true;
+  CFG.mm2On=true;  CFG.mm2Per=14; CFG.mm2Cor='#3b82f6'; CFG.mm2Op=0.75; CFG.mm2Lw=2.0; CFG.mm2Dash=[8,4]; CFG.mm2Curva='linear'; CFG.mm2Line=true;
+  CFG.mm3On=true;  CFG.mm3Per=34; CFG.mm3Cor='#22c55e'; CFG.mm3Op=0.65; CFG.mm3Lw=1.8; CFG.mm3Dash=[3,4]; CFG.mm3Curva='bezier'; CFG.mm3Mark=true;
   CFG.showMA=true; salvarConfig(); openCfgMM(); draw();
 }
 
@@ -2046,9 +2051,9 @@ function openCfgMM(){
   const g=(id,val)=>{const e=document.getElementById(id);if(e)e.value=val;};
   const gt=(id,on)=>{const e=document.getElementById(id);if(e)e.classList.toggle('on',on);};
   const dashStr=d=>Array.isArray(d)?(d[0]===4&&d[1]===5?'dash':d[0]===2?'dot':'solid'):'dash';
-  gt('mm1tog',CFG.mm1On); g('mm1per',CFG.mm1Per); g('mm1cor',CFG.mm1Cor); g('mm1op',CFG.mm1Op); g('mm1lw',CFG.mm1Lw); document.getElementById('mm1dash').value=dashStr(CFG.mm1Dash); document.getElementById('mm1curva').value=CFG.mm1Curva||'smooth';
-  gt('mm2tog',CFG.mm2On); g('mm2per',CFG.mm2Per); g('mm2cor',CFG.mm2Cor); g('mm2op',CFG.mm2Op); g('mm2lw',CFG.mm2Lw); document.getElementById('mm2dash').value=dashStr(CFG.mm2Dash); document.getElementById('mm2curva').value=CFG.mm2Curva||'linear';
-  gt('mm3tog',CFG.mm3On); g('mm3per',CFG.mm3Per); g('mm3cor',CFG.mm3Cor); g('mm3op',CFG.mm3Op); g('mm3lw',CFG.mm3Lw); document.getElementById('mm3dash').value=dashStr(CFG.mm3Dash); document.getElementById('mm3curva').value=CFG.mm3Curva||'bezier';
+  gt('mm1tog',CFG.mm1On); g('mm1per',CFG.mm1Per); g('mm1cor',CFG.mm1Cor); g('mm1op',CFG.mm1Op); g('mm1lw',CFG.mm1Lw); document.getElementById('mm1dash').value=dashStr(CFG.mm1Dash); document.getElementById('mm1curva').value=CFG.mm1Curva||'smooth'; gt('mm1arc',CFG.mm1Arc!==false);
+  gt('mm2tog',CFG.mm2On); g('mm2per',CFG.mm2Per); g('mm2cor',CFG.mm2Cor); g('mm2op',CFG.mm2Op); g('mm2lw',CFG.mm2Lw); document.getElementById('mm2dash').value=dashStr(CFG.mm2Dash); document.getElementById('mm2curva').value=CFG.mm2Curva||'linear'; gt('mm2line',CFG.mm2Line!==false);
+  gt('mm3tog',CFG.mm3On); g('mm3per',CFG.mm3Per); g('mm3cor',CFG.mm3Cor); g('mm3op',CFG.mm3Op); g('mm3lw',CFG.mm3Lw); document.getElementById('mm3dash').value=dashStr(CFG.mm3Dash); document.getElementById('mm3curva').value=CFG.mm3Curva||'bezier'; gt('mm3mark',CFG.mm3Mark!==false);
   document.getElementById('mmModal').classList.add('open');
 }
 function closeCfgMM(){ document.getElementById('mmModal').classList.remove('open'); }
@@ -2066,11 +2071,11 @@ function aplicarCfgMM(){
   const gd=(id)=>dashFromStr(document.getElementById(id)?.value||'dash');
   const gc=(id)=>document.getElementById(id)?.value||'#ffffff';
 
-  CFG.mm1On=gt('mm1tog'); CFG.mm1Per=gv('mm1per',9); CFG.mm1Cor=gc('mm1cor'); CFG.mm1Op=gv('mm1op',.8,true); CFG.mm1Lw=gv('mm1lw',1.5,true); CFG.mm1Dash=gd('mm1dash'); CFG.mm1Curva=document.getElementById('mm1curva')?.value||'smooth';
-  CFG.mm2On=gt('mm2tog'); CFG.mm2Per=gv('mm2per',21); CFG.mm2Cor=gc('mm2cor'); CFG.mm2Op=gv('mm2op',.55,true); CFG.mm2Lw=gv('mm2lw',1.2,true); CFG.mm2Dash=gd('mm2dash'); CFG.mm2Curva=document.getElementById('mm2curva')?.value||'linear';
-  CFG.mm3On=gt('mm3tog'); CFG.mm3Per=gv('mm3per',50); CFG.mm3Cor=gc('mm3cor'); CFG.mm3Op=gv('mm3op',.5,true); CFG.mm3Lw=gv('mm3lw',1.0,true); CFG.mm3Dash=gd('mm3dash'); CFG.mm3Curva=document.getElementById('mm3curva')?.value||'bezier';
+  CFG.mm1On=gt('mm1tog'); CFG.mm1Per=gv('mm1per',9); CFG.mm1Cor=gc('mm1cor'); CFG.mm1Op=gv('mm1op',.8,true); CFG.mm1Lw=gv('mm1lw',1.5,true); CFG.mm1Dash=gd('mm1dash'); CFG.mm1Curva=document.getElementById('mm1curva')?.value||'smooth'; CFG.mm1Arc=gt('mm1arc');
+  CFG.mm2On=gt('mm2tog'); CFG.mm2Per=gv('mm2per',21); CFG.mm2Cor=gc('mm2cor'); CFG.mm2Op=gv('mm2op',.55,true); CFG.mm2Lw=gv('mm2lw',1.2,true); CFG.mm2Dash=gd('mm2dash'); CFG.mm2Curva=document.getElementById('mm2curva')?.value||'linear'; CFG.mm2Line=gt('mm2line');
+  CFG.mm3On=gt('mm3tog'); CFG.mm3Per=gv('mm3per',50); CFG.mm3Cor=gc('mm3cor'); CFG.mm3Op=gv('mm3op',.5,true); CFG.mm3Lw=gv('mm3lw',1.0,true); CFG.mm3Dash=gd('mm3dash'); CFG.mm3Curva=document.getElementById('mm3curva')?.value||'bezier'; CFG.mm3Mark=gt('mm3mark');
 
-  // Atualiza botão MM na topbar
+  // Atualiza botï¿½o MM na topbar
   const anyOn=CFG.mm1On||CFG.mm2On||CFG.mm3On;
   document.getElementById('maBtn').classList.toggle('on', anyOn);
   CFG.showMA=anyOn;
@@ -2079,7 +2084,7 @@ function aplicarCfgMM(){
   draw();
 }
 
-// ----------- ALERTA DE ÁUDIO -----------
+// ----------- ALERTA DE ï¿½UDIO -----------
 let _alertasDisparados = new Set();
 
 function tocarAlerta(){
@@ -2107,7 +2112,7 @@ function toggleModoRodada(){
     modoRodada=true;
     const b=document.getElementById('btnRodada');
     b.classList.add('on'); b.textContent='? RODADA ON';
-    // Abre popup automaticamente na última vela
+    // Abre popup automaticamente na ï¿½ltima vela
     if(pts.length>0){
       const sub=getViewSub();
       const W=canvas.width, H=canvas.height;
@@ -2148,7 +2153,7 @@ document.addEventListener('keydown',ev=>{
   if(ev.key==='Escape'){p.classList.remove('show');ev.stopPropagation();return;}
   if(ev.key==='Enter'){
     const n=parseInt(document.getElementById('rpN').value||'');
-    if(isNaN(n)||n<1){showAlert('Digite um número válido','#f43f5e',2000);return;}
+    if(isNaN(n)||n<1){showAlert('Digite um nï¿½mero vï¿½lido','#f43f5e',2000);return;}
     const idx=parseInt(p.dataset.idx||'0');
     rodadaConfig.velaNro=idx+1; rodadaConfig.rodadaNro=n; rodadaConfig.ativo=true;
     salvarConfig(); p.classList.remove('show'); draw();
@@ -2170,17 +2175,17 @@ function aplicarRodadasTop(){
     showAlert('Informe o multiplicador da vela (ex: 2.80)','#f43f5e',3000); return;
   }
   if(isNaN(rodada)||rodada<1){
-    showAlert('Informe o número da rodada','#f43f5e',3000); return;
+    showAlert('Informe o nï¿½mero da rodada','#f43f5e',3000); return;
   }
 
-  // Encontra a vela pelo multiplicador — busca a mais próxima do valor informado
-  // Se informou horário, prioriza a que também bate o horário
+  // Encontra a vela pelo multiplicador ï¿½ busca a mais prï¿½xima do valor informado
+  // Se informou horï¿½rio, prioriza a que tambï¿½m bate o horï¿½rio
   let melhorIdx = -1;
   let melhorDiff = Infinity;
 
   pts.forEach((p, i) => {
     const diff = Math.abs(p.val - multInput);
-    // Se tem horário, verifica se o horário bate
+    // Se tem horï¿½rio, verifica se o horï¿½rio bate
     let horaOk = true;
     if(horaInput && horaInput.includes(':')){
       const hm = p.time.toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit'});
@@ -2192,7 +2197,7 @@ function aplicarRodadasTop(){
     }
   });
 
-  // Se não achou com horário, tenta só pelo mult
+  // Se nï¿½o achou com horï¿½rio, tenta sï¿½ pelo mult
   if(melhorIdx < 0){
     pts.forEach((p, i) => {
       const diff = Math.abs(p.val - multInput);
@@ -2213,12 +2218,12 @@ function aplicarRodadasTop(){
   salvarConfig();
   draw();
 
-  const horaStr = horaInput ? ' às '+horaInput : '';
+  const horaStr = horaInput ? ' ï¿½s '+horaInput : '';
   showAlert('? Vela #'+velaEncontrada+' ('+pts[melhorIdx].val.toFixed(2)+'x'+horaStr+') = rodada '+rodada,'#22c55e',4000);
 }
 
 function openRodadas(){
-  // Preenche com valores atuais se já configurado
+  // Preenche com valores atuais se jï¿½ configurado
   if(rodadaConfig.ativo){
     document.getElementById('rodVela').value=rodadaConfig.velaNro;
     document.getElementById('rodNro').value=rodadaConfig.rodadaNro;
@@ -2230,7 +2235,7 @@ function limparRodadas(){
   rodadaConfig.ativo=false;
   document.getElementById('rodVela').value='';
   document.getElementById('rodNro').value='';
-  document.getElementById('rodStatus').textContent='Numeração removida.';
+  document.getElementById('rodStatus').textContent='Numeraï¿½ï¿½o removida.';
   document.getElementById('rodStatus').style.color='var(--txt2)';
   salvarConfig(); closeRodadas(); draw();
 }
@@ -2239,7 +2244,7 @@ function aplicarRodadas(){
   const vela  = parseInt(document.getElementById('rodVela').value);
   const rodada= parseInt(document.getElementById('rodNro').value);
   if(isNaN(vela)||isNaN(rodada)||vela<1||rodada<1){
-    showAlert('Preencha o nº da vela e o nº da rodada','#f43f5e',3000);
+    showAlert('Preencha o nï¿½ da vela e o nï¿½ da rodada','#f43f5e',3000);
     return;
   }
   rodadaConfig.velaNro  = vela;
@@ -2253,7 +2258,7 @@ function aplicarRodadas(){
   showAlert('Rodadas: vela '+vela+' = rodada '+rodada,'#22c55e',3000);
 }
 
-// ----------- PERSISTÊNCIA — localStorage -----------
+// ----------- PERSISTï¿½NCIA ï¿½ localStorage -----------
 const STORAGE_KEY = 'aviator_v7_cfg';
 const HISTORY_KEY = 'aviator_vr5_historico_tipminer';
 
@@ -2291,7 +2296,7 @@ function carregarConfig(){
     // Restaura CFG
     if(dados.cfg){
       Object.assign(CFG, dados.cfg);
-      // Mantém o painel abrindo com 100 rodadas visíveis para o histórico de pontos
+      // Mantï¿½m o painel abrindo com 100 rodadas visï¿½veis para o histï¿½rico de pontos
       CFG.showN = Math.max(10, parseInt(CFG.showN)||60);
       // Garante que dash seja array
       ['mm1Dash','mm2Dash','mm3Dash'].forEach(k=>{
@@ -2302,13 +2307,13 @@ function carregarConfig(){
     // Restaura rodadaConfig
     if(dados.rodada) Object.assign(rodadaConfig, dados.rodada);
 
-    // Restaura desenhos/marcações
+    // Restaura desenhos/marcaï¿½ï¿½es
     if(Array.isArray(dados.drawings)) drawings = dados.drawings;
 
     // Restaura servidor
     if(dados.servidor) Object.assign(srv, dados.servidor);
 
-    // Atualiza UI do botão MM
+    // Atualiza UI do botï¿½o MM
     const anyOn = CFG.mm1On||CFG.mm2On||CFG.mm3On;
     document.getElementById('maBtn')?.classList.toggle('on', anyOn);
 
@@ -2327,7 +2332,7 @@ function carregarConfig(){
   } catch(e){ console.warn('Erro ao carregar config:', e); }
 }
 
-// ----------- SIMULAÇÃO -----------
+// ----------- SIMULAï¿½ï¿½O -----------
 function iniciarSim(){
   if(simInt)return;
   simInt=setInterval(()=>{
@@ -2365,11 +2370,11 @@ function iniciarSim(){
     1.89,7.67,1.27,1.13,1.87,1.00,1.48,1.21,3.50,2.29,
     2.17,6.26,21.26,3.77,1.06,1.01,2.61,3.01,3.55,3.97
   ];
-  // Seed removido: gráfico inicia vazio, recebe apenas velas reais
+  // Seed removido: grï¿½fico inicia vazio, recebe apenas velas reais
 })();
 
 // Auto-conectar silencioso
-// --- RELÓGIO INDEPENDENTE ---
+// --- RELï¿½GIO INDEPENDENTE ---
 setInterval(()=>{
   const el=document.getElementById('xNow');
   if(el) el.textContent=new Date().toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit',second:'2-digit'});
@@ -2383,7 +2388,7 @@ setTimeout(()=>{
 },2000);
 
 
-// ----------- GRÁFICO 1 — TIPMINER NORMAL / HISTÓRICO IMPORTADO EM CARDS -----------
+// ----------- GRï¿½FICO 1 ï¿½ TIPMINER NORMAL / HISTï¿½RICO IMPORTADO EM CARDS -----------
 function setGrafico(n){
   graficoAtivo = n;
   const raw=document.getElementById('rawWrap');
@@ -2405,7 +2410,7 @@ function setGrafico(n){
 function classeTip(v){ v=parseFloat(v)||0; return v>=50 ? 'c50' : v>=10 ? 'c10' : 'c1'; }
 function fmtMult(v){ return (Number(v)||0).toFixed(2).replace('.', ',')+'x'; }
 function fmtHora(t){
-  try{return (t instanceof Date?t:new Date(t)).toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(_){return '—';}
+  try{return (t instanceof Date?t:new Date(t)).toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(_){return 'ï¿½';}
 }
 
 function g2UltimoAcima(limite){
@@ -2416,16 +2421,16 @@ function g2UltimoAcima(limite){
   return null;
 }
 function g2MinutosTexto(p){
-  if(!p || !p.time) return '—';
+  if(!p || !p.time) return 'ï¿½';
   const t = p.time instanceof Date ? p.time : new Date(p.time);
-  if(isNaN(t.getTime())) return '—';
+  if(isNaN(t.getTime())) return 'ï¿½';
   const m = Math.max(0, Math.floor((Date.now()-t.getTime())/60000));
   if(m < 1) return 'agora';
   return m + ' min';
 }
 function g2HoraTexto(p){
   if(!p) return 'aguardando';
-  return fmtMult(p.val) + ' às ' + fmtHora(p.time);
+  return fmtMult(p.val) + ' ï¿½s ' + fmtHora(p.time);
 }
 function atualizarTopoGrafico2(){
   const p10=g2UltimoAcima(10), p30=g2UltimoAcima(30), p50=g2UltimoAcima(50), p100=g2UltimoAcima(100);
@@ -2477,8 +2482,8 @@ function extrairRodadaDaLinha(row){
   return null;
 }
 function ordenarHistoricoTipMiner(novos){
-  // TipMiner pode exportar do mais novo para o mais antigo. O painel precisa do histórico em ordem antiga ? nova
-  // para montar corretamente a linha do Gráfico 1 e a pontuação do Gráfico 2.
+  // TipMiner pode exportar do mais novo para o mais antigo. O painel precisa do histï¿½rico em ordem antiga ? nova
+  // para montar corretamente a linha do Grï¿½fico 1 e a pontuaï¿½ï¿½o do Grï¿½fico 2.
   if(!novos || novos.length < 2) return novos;
   const first=novos[0].time instanceof Date ? novos[0].time.getTime() : NaN;
   const last=novos[novos.length-1].time instanceof Date ? novos[novos.length-1].time.getTime() : NaN;
@@ -2503,19 +2508,19 @@ function escolherColunaMultiplicador(rows){
 function carregarRowsTipMiner(rows, origem){
   if(!rows || !rows.length) throw new Error('Arquivo vazio.');
   const col=escolherColunaMultiplicador(rows);
-  if(!col) throw new Error('Não achei coluna de multiplicador no arquivo.');
+  if(!col) throw new Error('Nï¿½o achei coluna de multiplicador no arquivo.');
   const novos=[];
   rows.forEach((r,i)=>{
     const mult=limparTextoMult(r[col]);
     if(!isNaN(mult)&&mult>0){ novos.push({mult, time:extrairDataHoraDaLinha(r), rodada:extrairRodadaDaLinha(r), i}); }
   });
-  if(!novos.length) throw new Error('Não encontrei velas no arquivo.');
+  if(!novos.length) throw new Error('Nï¿½o encontrei velas no arquivo.');
   pts=[]; viewOffset=0; zoomLevel=1; vertOffset=0;
   ordenarHistoricoTipMiner(novos).forEach(n=>push(n.mult,n.time,n.rodada));
   removerDuplicadasHistorico();
   salvarHistoricoLocal();
   renderTipGrid(); atualizarTopoGrafico2(); resize(); draw();
-  showAlert('? Histórico TipMiner aplicado nos Gráficos 1 e 2: '+pts.length+' velas','#22c55e',5000);
+  showAlert('? Histï¿½rico TipMiner aplicado nos Grï¿½ficos 1 e 2: '+pts.length+' velas','#22c55e',5000);
   document.getElementById('sTot').textContent=pts.length;
   const last=pts[pts.length-1];
   if(last){ document.getElementById('sCot').textContent=last.val.toFixed(2)+'x'; }
@@ -2532,7 +2537,7 @@ async function importarHistoricoTipMiner(file){
       const headers=lines.shift().split(sep).map(h=>h.trim());
       rows=lines.map(line=>{ const vals=line.split(sep); const o={}; headers.forEach((h,i)=>o[h||('col'+i)]=vals[i]??''); return o; });
     }else{
-      if(typeof XLSX==='undefined') throw new Error('Leitor de Excel não carregou. Tente exportar CSV no TipMiner.');
+      if(typeof XLSX==='undefined') throw new Error('Leitor de Excel nï¿½o carregou. Tente exportar CSV no TipMiner.');
       const buf=await file.arrayBuffer();
       const wb=XLSX.read(buf,{type:'array'});
       const ws=wb.Sheets[wb.SheetNames[0]];
@@ -2557,10 +2562,10 @@ function baixarBlob(nome, blob){
 }
 function exportarHistoricoExcel(){
   const rows=montarHistoricoParaExportar();
-  if(!rows.length){ showAlert('Sem histórico para exportar','#f43f5e',2500); return; }
+  if(!rows.length){ showAlert('Sem histï¿½rico para exportar','#f43f5e',2500); return; }
   const nome='historico_tipminer_painel_vr5.xlsx';
   try{
-    if(typeof XLSX==='undefined') throw new Error('xlsx indisponível');
+    if(typeof XLSX==='undefined') throw new Error('xlsx indisponï¿½vel');
     const ws=XLSX.utils.json_to_sheet(rows);
     const wb=XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb,ws,'Historico VR5');
@@ -2625,7 +2630,7 @@ function resize(){
 new ResizeObserver(resize).observe(cwrap);
 setTimeout(()=>{
   carregarConfig();
-  // ? CORRIGIDO: carrega historico salvo — nao apaga mais no reload
+  // ? CORRIGIDO: carrega historico salvo ï¿½ nao apaga mais no reload
   const carregou = carregarHistoricoLocal();
   if(!carregou){ pts = []; salvarHistoricoLocal(); }
   else { console.log('? Historico carregado: '+pts.length+' velas'); }
@@ -2638,7 +2643,7 @@ setTimeout(()=>{
   if(rv) rv.addEventListener('keydown',e=>{if(e.key==='Enter')aplicarRodadas();});
   if(rn) rn.addEventListener('keydown',e=>{if(e.key==='Enter')aplicarRodadas();});
   // Enter nos campos da topbar
-  // Restaura botão rodada se estava ativo
+  // Restaura botï¿½o rodada se estava ativo
   if(rodadaConfig.ativo&&modoRodada){
     const b=document.getElementById('btnRodada');
     if(b){b.classList.add('on');b.textContent='? RODADA ON';}
@@ -2647,7 +2652,7 @@ setTimeout(()=>{
 </script>
 
 <script>
-// -- Utilitários topbar --
+// -- Utilitï¿½rios topbar --
 function velasSemRosaAtual(){
   for(let i = pts.length-1; i >= 0; i--){
     if(pts[i].val >= 10) return pts.length - 1 - i;
@@ -2681,19 +2686,19 @@ function atualizarBotoesTopbar(){
   }
 }
 
-// -- Atualiza botões topbar (mantidos como info rápida)
+// -- Atualiza botï¿½es topbar (mantidos como info rï¿½pida)
 setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
 
 // --------------------------------------------------------
 
 // --------------------------------------------------------
-// GRÁFICO FLUTUANTE — canvas independente que mostra página
-// de histórico. Não interfere no gráfico principal.
+// GRï¿½FICO FLUTUANTE ï¿½ canvas independente que mostra pï¿½gina
+// de histï¿½rico. Nï¿½o interfere no grï¿½fico principal.
 // --------------------------------------------------------
 (function(){
-  const FLOAT_PAGE = 25; // 25 velas/página ? mais telas
+  const FLOAT_PAGE = 25; // 25 velas/pï¿½gina ? mais telas
   let floatVisible = false;
-  let floatPage = 0;      // 0 = página mais recente
+  let floatPage = 0;      // 0 = pï¿½gina mais recente
   let floatDragging = false;
   let floatDX = 0, floatDY = 0;
 
@@ -2738,7 +2743,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
     ctxF.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  // -- Renderiza páginas de histórico --
+  // -- Renderiza pï¿½ginas de histï¿½rico --
   function buildPages(){
     if(!histPages) return;
     const total = pts.length;
@@ -2746,7 +2751,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
     // Clamp floatPage
     floatPage = Math.max(0, Math.min(floatPage, nPages - 1));
 
-    let html = '<span class="pg-info">Páginas:</span>';
+    let html = '<span class="pg-info">Pï¿½ginas:</span>';
     for(let i = nPages - 1; i >= 0; i--){
       const from = total - (i + 1) * FLOAT_PAGE;
       const to   = total - i * FLOAT_PAGE - 1;
@@ -2765,7 +2770,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
     drawFloat();
   };
 
-  // -- Desenha o gráfico flutuante --
+  // -- Desenha o grï¿½fico flutuante --
   function drawFloat(){
     if(!floatVisible || !cvF || !ctxF) return;
     const W = cvF.width  / (window.devicePixelRatio||1);
@@ -2776,13 +2781,13 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
     const nPages = Math.ceil(total / FLOAT_PAGE) || 1;
     floatPage    = Math.max(0, Math.min(floatPage, nPages - 1));
 
-    // Ciclo correto: pág 0 = AGORA (últimas 25 velas)
-    // A última vela de pág N é sempre a vela imediatamente antes da 1ª de pág N-1
-    // Assim o ciclo do gráfico nunca quebra entre páginas
+    // Ciclo correto: pï¿½g 0 = AGORA (ï¿½ltimas 25 velas)
+    // A ï¿½ltima vela de pï¿½g N ï¿½ sempre a vela imediatamente antes da 1ï¿½ de pï¿½g N-1
+    // Assim o ciclo do grï¿½fico nunca quebra entre pï¿½ginas
     const endIdx   = total - floatPage * FLOAT_PAGE;
     const startIdx = Math.max(0, endIdx - FLOAT_PAGE);
     const sub      = pts.slice(startIdx, endIdx);
-    const globalStart = startIdx; // índice global da 1ª vela desta página
+    const globalStart = startIdx; // ï¿½ndice global da 1ï¿½ vela desta pï¿½gina
 
     if(sub.length < 2){
       ctxF.fillStyle = 'rgba(184,208,236,.3)';
@@ -2792,7 +2797,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
       return;
     }
 
-    // Escala Y — log para não esmagar as pequenas
+    // Escala Y ï¿½ log para nï¿½o esmagar as pequenas
     const vals  = sub.map(p=>p.val);
     const mn    = Math.min(...vals);
     const mx    = Math.max(...vals);
@@ -2814,7 +2819,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
       ctxF.beginPath(); ctxF.moveTo(padL, gy); ctxF.lineTo(W - padR, gy); ctxF.stroke();
     }
 
-    // Escala Y direita — valores de referência com cores
+    // Escala Y direita ï¿½ valores de referï¿½ncia com cores
     const yRefs = [1, 1.5, 2, 3, 5, 10, 20, 50, 100, 200, 500, 1000];
     yRefs.forEach(v => {
       if(v < mn * 0.85 || v > mx * 1.15) return;
@@ -2829,7 +2834,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
       ctxF.fillText(v + 'x', W - padR + 4, fy + 3);
     });
 
-    // Área preenchida sob a linha
+    // ï¿½rea preenchida sob a linha
     ctxF.beginPath();
     sub.forEach((p, i) => {
       const x = sx2(i), y = sy(p.val);
@@ -2866,7 +2871,7 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
       }
     });
 
-    // Eixo X: número sequencial da vela + horário
+    // Eixo X: nï¿½mero sequencial da vela + horï¿½rio
     const skipX = Math.max(1, Math.floor(sub.length / 8));
     const _drawnFloatNums = new Set();
     sub.forEach((p, i) => {
@@ -2881,22 +2886,22 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
       ctxF.strokeStyle = 'rgba(30,58,88,.3)'; ctxF.lineWidth = 0.4; ctxF.setLineDash([2,6]);
       ctxF.beginPath(); ctxF.moveTo(x, padT); ctxF.lineTo(x, H - padB + 2); ctxF.stroke();
       ctxF.setLineDash([]);
-      // Número da vela
+      // Nï¿½mero da vela
       ctxF.fillStyle = 'rgba(168,85,247,.8)';
       ctxF.font = 'bold 7px JetBrains Mono, monospace'; ctxF.textAlign = 'center';
       ctxF.fillText('#' + velaNum, x, H - padB + 12);
-      // Horário
+      // Horï¿½rio
       ctxF.fillStyle = 'rgba(74,110,148,.7)';
       ctxF.font = '6px JetBrains Mono, monospace';
       ctxF.fillText(hora, x, H - padB + 22);
     });
 
-    // Título + info da página
+    // Tï¿½tulo + info da pï¿½gina
     const nPage = nPages - floatPage;
-    const pageLabel = floatPage === 0 ? '? AGORA' : 'Pág ' + nPage + '/' + nPages;
+    const pageLabel = floatPage === 0 ? '? AGORA' : 'Pï¿½g ' + nPage + '/' + nPages;
     ctxF.fillStyle = 'rgba(168,85,247,.7)';
     ctxF.font = 'bold 8px JetBrains Mono, monospace'; ctxF.textAlign = 'left';
-    ctxF.fillText('VR5  ' + pageLabel + '  (' + sub.length + ' velas  #' + (globalStart+1) + '–#' + (globalStart+sub.length) + ')', padL + 4, 14);
+    ctxF.fillText('VR5  ' + pageLabel + '  (' + sub.length + ' velas  #' + (globalStart+1) + 'ï¿½#' + (globalStart+sub.length) + ')', padL + 4, 14);
   }
 
   window._drawFloat = drawFloat;
@@ -2941,16 +2946,16 @@ setInterval(()=>{ atualizarBotoesTopbar(); }, 4000);
 
 </script>
 
-<!-- -- GRÁFICO FLUTUANTE -- -->
+<!-- -- GRï¿½FICO FLUTUANTE -- -->
 <div class="float-chart-wrap" id="floatChart" style="width:600px;height:380px;top:80px;left:200px;">
   <div class="float-titlebar" id="floatTitlebar">
-    <span>&#9974; GRÁFICO FLUTUANTE — VR5</span>
+    <span>&#9974; GRï¿½FICO FLUTUANTE ï¿½ VR5</span>
     <button class="float-close" onclick="toggleFloat()" title="Fechar">&#10005;</button>
   </div>
   <div class="float-canvas-wrap" id="floatCanvasWrap">
     <canvas id="cvFloat"></canvas>
   </div>
-  <!-- Paginação de histórico -->
+  <!-- Paginaï¿½ï¿½o de histï¿½rico -->
   <div class="hist-pages" id="histPages"></div>
 </div>
 
