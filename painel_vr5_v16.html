@@ -749,7 +749,8 @@ let isPanning = false, panX0 = 0, panOff0 = 0;
 let _mx=0,_my=0;
 
 // Servidor
-const srv = { url:'https://aviator-trader-v2.onrender.com', get:'/api/velas', post:'/api/nova-vela', painel:1, poll:1500 };
+const urlParams=new URLSearchParams(window.location.search);const painelPadrao=parseInt(urlParams.get('painel'))||1;
+const srv = { url:'https://aviator-trader-v2.onrender.com', get:'/api/velas', post:'/api/nova-vela', painel:painelPadrao, poll:1500 };
 let pollingTimer = null, simInt = null, modoFonte = 'simulado';
 let ultimaChave = null;
 

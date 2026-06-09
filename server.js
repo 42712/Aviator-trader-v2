@@ -309,6 +309,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'painel_vr5_v16.html'));
 });
 
+app.get('/painel1', (req, res) => {
+    res.redirect('/?painel=1');
+});
+
+app.get('/painel2', (req, res) => {
+    res.redirect('/?painel=2');
+});
+
 app.get('/api', (req, res) => {
     res.json({
         nome: 'API Aviator Trader - 100% Online',
