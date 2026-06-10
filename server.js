@@ -305,8 +305,9 @@ app.delete('/api/limpar', (req, res) => {
     });
 });
 
+// ============ ROTA PRINCIPAL — serve o painel v18 ============
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'painel_vr5_v16.html'));
+    res.sendFile(path.join(__dirname, 'painel_vr5_v18.html'));
 });
 
 app.get('/painel1', (req, res) => {
@@ -349,10 +350,7 @@ app.listen(PORT, () => {
     console.log('   🌐 TipMiner: Scraper ativo');
     console.log('   =====================================\n');
 
-    // Inicia capturador WebSocket
     conectarWS();
-
-    // TipMiner scraper a cada 30s como fallback
     setInterval(tentarScraperTipMiner, 30000);
     tentarScraperTipMiner();
 });
