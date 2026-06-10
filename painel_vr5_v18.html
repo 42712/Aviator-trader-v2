@@ -760,12 +760,13 @@ let _mx=0,_my=0;
 
 // ── CACHE DAS MÉDIAS MÓVEIS (recalcula só quando pts muda) ──
 let _mmCache = {
-  ptsLen: -1,       // tamanho do pts na última vez que calculou
-  ema1: null,       // EMA amarela (período CFG.mm1Per)
-  ema2: null,       // EMA azul   (período CFG.mm2Per)
-  ema3: null,       // EMA verde  (período CFG.mm3Per)
+  ptsLen: -1,
+  ema1: null,
+  ema2: null,
+  ema3: null,
   fundosNormais: [],
   fundosGrandes: [],
+  fundosDuplos: [],   // pares [idx1, idx2] de fundo duplo detectados
 };
 // Invalida cache quando pts ganha nova vela
 function invalidarCacheMM(){ _mmCache.ptsLen = -1; }
@@ -1189,6 +1190,21 @@ function scheduleDraw(){
   _drawRaf=requestAnimationFrame(()=>{_drawPending=false;_drawRaf=null;renderTipGrid();atualizarTopoGrafico2();draw();});
 }
 
+// Loop contínuo para animações piscantes (fundo duplo, compressão rosa)
+let _animLoopActive = false;
+function iniciarAnimLoop(){
+  if(_animLoopActive) return;
+  _animLoopActive = true;
+  function _tick(){
+    // Redesenha só se há fundos duplos visíveis ou compressão alta
+    const temFD = _mmCache.fundosDuplos && _mmCache.fundosDuplos.length > 0;
+    const temComp = ultimaCompressao > 0.45;
+    if(temFD || temComp) draw();
+    requestAnimationFrame(_tick);
+  }
+  requestAnimationFrame(_tick);
+}
+
 const ULTIMAS = { rosa:null, ouro:null, roxo:null, ciano:null };
 
 function atualizarUltimas(val, time){
@@ -1259,6 +1275,35 @@ function receberVela(val,timestamp,fonte,rodada){
     let e1=allV[0], e2=allV[0];
     const emaCheck = allV.map((v2,i)=>{if(i>0){e1=v2*k1+e1*(1-k1);e2=v2*k2+e2*(1-k2);}return{e1,e2};});
     checkSinalEntrada(emaCheck);
+  }
+
+  // ── ALERTA DE FUNDO DUPLO — dispara quando par novo detectado ──────
+  if(_mmCache.ptsLen === pts.length && _mmCache.fundosDuplos && _mmCache.fundosDuplos.length > 0){
+    const ultimoPar = _mmCache.fundosDuplos[_mmCache.fundosDuplos.length - 1];
+    if(ultimoPar){
+      const [idx1, idx2] = ultimoPar;
+      const chave = 'fd_'+idx1+'_'+idx2;
+      if(window._ultimoAlertaFundoDuplo !== chave){
+        window._ultimoAlertaFundoDuplo = chave;
+        const v1 = pts[idx1]?.val ?? 0;
+        const v2 = pts[idx2]?.val ?? 0;
+        // Só alerta se o segundo fundo foi recente (últimas 8 velas)
+        if(idx2 >= pts.length - 8){
+          mostrarBurstNotif && mostrarBurstNotif(
+            '🔻 FUNDO DUPLO DETECTADO',
+            '⚡ POSSÍVEL ROSA NA PRÓXIMA!',
+            `Fundo 1: ${v1.toFixed(2)}x · Fundo 2: ${v2.toFixed(2)}x`,
+            10000, '#f472b6'
+          );
+          showAlert('🔻 FUNDO DUPLO — '+v1.toFixed(2)+'x ≈ '+v2.toFixed(2)+'x — PRÓXIMA PODE SER ROSA!','#f472b6',12000);
+          triggerFlash && triggerFlash();
+          beep && beep([[440,0,.1],[600,.12,.1],[800,.24,.12],[1000,.36,.18],[800,.50,.15]],'sine',0.2);
+          addBurstLog && addBurstLog('🔻 FUNDO DUPLO','#f472b6',v1.toFixed(2)+'x ≈ '+v2.toFixed(2)+'x');
+          // Agenda aviso 10s antes da próxima vela
+          typeof agendarAvisoProximaVela === 'function' && agendarAvisoProximaVela(idx2, '#f472b6');
+        }
+      }
+    }
   }
 
   // ── PREVISÃO ROSA — recalcula uma vez por vela, não no draw() ──
@@ -1547,6 +1592,24 @@ function draw(){
       _mmCache.ema3        = e3r ? _anchorar(e3r, fg, allV) : null;
       _mmCache.fundosNormais = fn;
       _mmCache.fundosGrandes = fg;
+
+      // ── DETECÇÃO DE FUNDO DUPLO ─────────────────────────────────
+      // Dois fundos próximos com valores similares = fundo duplo
+      const todosOsFundos = [...new Set([...fn, ...fg])].sort((a,b)=>a-b);
+      const pares = [];
+      for(let i=0; i<todosOsFundos.length-1; i++){
+        const idx1 = todosOsFundos[i];
+        const idx2 = todosOsFundos[i+1];
+        const dist = idx2 - idx1;
+        const v1 = allV[idx1], v2 = allV[idx2];
+        if(dist < 2 || dist > 20) continue; // muito perto ou longe demais
+        const similares = Math.abs(v1 - v2) / (Math.min(v1,v2)||1) < 0.25; // ≤25% diferença
+        // Precisa ter subida entre os dois fundos (corcova)
+        const pico = Math.max(...allV.slice(idx1, idx2+1));
+        const corcovaOk = pico > Math.max(v1,v2) * 1.15; // pico 15%+ acima dos fundos
+        if(similares && corcovaOk) pares.push([idx1, idx2]);
+      }
+      _mmCache.fundosDuplos = pares;
       _mmCache.ptsLen      = pts.length;
     }
 
@@ -1773,64 +1836,187 @@ function draw(){
     ctx.fillText('▲',x,y-18);
   });
 
-  // PREVISÃO ROSA — indicador de vela rosa prevista (MM2 adaptativa)
-  if(CFG.mm2Adaptive && CFG.mm2On && previsaoRosa.velas>0 && sub.length>previsaoRosa.velas){
-    const prob = previsaoRosa.prob;
-    const alvo = Math.min(previsaoRosa.velas, 5);
-    // Desenha zona de alerta rosa nos próximos N candles (espaços vazios à direita)
-    const lastX = sx(sub.length-1);
-    const step = (lastX - sx(0)) / (sub.length-1||1);
-    for(let v=1; v<=alvo; v++){
-      const px = lastX + v*step;
-      if(px > W-scaleW) break;
-      const alpha = 0.15 + (alvo-v+1)/alvo * 0.35;
-      const glowAlpha = 0.03 + (alvo-v+1)/alvo * 0.08;
+  // ── MARCADORES DE FUNDO DUPLO — seta piscando no 2º fundo ──────────
+  if(_mmCache.fundosDuplos && _mmCache.fundosDuplos.length > 0){
+    const now = Date.now();
+    const blink     = Math.sin(now / 300) > 0;
+    const blinkFast = Math.sin(now / 170) > 0;
 
-      // Glow de fundo rosa
-      ctx.fillStyle='rgba(244,114,182,'+glowAlpha+')';
-      ctx.fillRect(px-12, G2_CHART_TOP, 24, cH);
+    _mmCache.fundosDuplos.forEach(([idx1, idx2])=>{
+      const li1 = idx1 - subStart;
+      const li2 = idx2 - subStart;
+      const vis1 = li1 >= 0 && li1 < sub.length;
+      const vis2 = li2 >= 0 && li2 < sub.length;
+      if(!vis1 && !vis2) return;
 
-      // Linha vertical tracejada rosa
-      ctx.setLineDash([3,6]);
-      ctx.strokeStyle='rgba(244,114,182,'+alpha+')';
-      ctx.lineWidth=1.2+(alvo-v+1)*0.5;
-      ctx.beginPath();ctx.moveTo(px,G2_CHART_TOP);ctx.lineTo(px,G2_CHART_TOP+cH);ctx.stroke();
-      ctx.setLineDash([]);
+      const v1 = pts[idx1]?.val ?? 0;
+      const v2 = pts[idx2]?.val ?? 0;
 
-      // Badge contagem regressiva
-      const badgeY = G2_CHART_TOP + cH/2 - (alvo-1)*14 + (v-1)*28;
-      ctx.fillStyle='rgba(244,114,182,'+alpha+')';
-      ctx.beginPath();ctx.roundRect(px-16, badgeY-10, 32, 20, 5);ctx.fill();
-      ctx.fillStyle='#fff';ctx.font='bold 10px JetBrains Mono,monospace';ctx.textAlign='center';
-      ctx.fillText('R'+v, px, badgeY+4);
-
-      // Label "ROSA?" no primeiro
-      if(v===1){
-        ctx.fillStyle='rgba(244,114,182,'+(alpha+0.2)+')';
-        ctx.font='bold 8px JetBrains Mono,monospace';
-        ctx.fillText('ROSA?', px, badgeY-16);
+      // Linha tracejada conectando os dois fundos
+      if(vis1 && vis2){
+        const x1=sx(li1), y1=sy(v1), x2=sx(li2), y2=sy(v2);
+        ctx.save();
+        ctx.strokeStyle = blink ? 'rgba(244,114,182,0.75)':'rgba(168,85,247,0.65)';
+        ctx.lineWidth=1.5; ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(x1,y1+8); ctx.lineTo(x2,y2+8); ctx.stroke();
+        ctx.setLineDash([]); ctx.restore();
       }
-    }
 
-    // Barra de progresso da compressão no topo da área de desenho
-    if(ultimaCompressao>0.3){
-      const barW = (W-12-scaleW-20) * Math.min(1, ultimaCompressao);
-      const barH = 6;
-      const barX = 16;
-      const barY = G2_CHART_TOP + 4;
-      // Fundo
-      ctx.fillStyle='rgba(0,0,0,0.4)';
-      ctx.fillRect(barX-2, barY-2, (W-12-scaleW-20)+4, barH+4);
-      // Gradiente: ciano → rosa baseado na compressão
-      const grad = ctx.createLinearGradient(barX,0,barX+barW,0);
-      grad.addColorStop(0,'#06b6d4');
-      grad.addColorStop(0.5,'#a855f7');
-      grad.addColorStop(1,'#f472b6');
-      ctx.fillStyle=grad;
-      ctx.fillRect(barX, barY, barW, barH);
-      // Label
-      ctx.fillStyle='rgba(255,255,255,0.6)';ctx.font='7px JetBrains Mono,monospace';ctx.textAlign='left';
-      ctx.fillText('COMPRESSÃO '+(ultimaCompressao*100).toFixed(0)+'%', barX+4, barY+barH-1);
+      // Seta piscando + badge no SEGUNDO fundo
+      if(vis2){
+        const x2=sx(li2), y2=sy(v2);
+        ctx.save();
+        // Glow externo piscante
+        if(blinkFast){
+          ctx.beginPath(); ctx.arc(x2,y2,22,0,Math.PI*2);
+          ctx.fillStyle='rgba(244,114,182,0.07)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(x2,y2,14,0,Math.PI*2);
+          ctx.fillStyle='rgba(244,114,182,0.17)'; ctx.fill();
+        }
+        // Seta grande ▼
+        const arrowY = y2 - 40;
+        ctx.font='bold 24px JetBrains Mono,monospace'; ctx.textAlign='center';
+        ctx.fillStyle    = blinkFast ? '#f472b6':'#a855f7';
+        ctx.shadowColor  = blinkFast ? '#f472b6':'#a855f7';
+        ctx.shadowBlur   = blinkFast ? 20 : 7;
+        ctx.fillText('▼', x2, arrowY);
+        ctx.shadowBlur=0;
+        // Badge FUNDO DUPLO
+        const bw=78,bh=17,bx=x2-bw/2,by=arrowY-24;
+        ctx.fillStyle = blinkFast ? 'rgba(244,114,182,0.88)':'rgba(168,85,247,0.78)';
+        ctx.beginPath();
+        if(ctx.roundRect) ctx.roundRect(bx,by,bw,bh,4); else ctx.rect(bx,by,bw,bh);
+        ctx.fill();
+        ctx.fillStyle='#fff'; ctx.font='bold 8px JetBrains Mono,monospace';
+        ctx.fillText('FUNDO DUPLO', x2, by+12);
+        // Valores
+        ctx.fillStyle='rgba(255,160,210,0.75)'; ctx.font='7px JetBrains Mono,monospace';
+        ctx.fillText(v1.toFixed(2)+'x ≈ '+v2.toFixed(2)+'x', x2, y2+20);
+        ctx.restore();
+      }
+      // Bolinha no primeiro fundo
+      if(vis1){
+        const x1=sx(li1), y1=sy(v1);
+        ctx.save();
+        ctx.beginPath(); ctx.arc(x1,y1,5,0,Math.PI*2);
+        ctx.fillStyle='rgba(244,114,182,0.38)'; ctx.fill();
+        ctx.strokeStyle='#f472b6'; ctx.lineWidth=1.2; ctx.stroke();
+        ctx.restore();
+      }
+    });
+  }
+
+  // PREVISÃO ROSA — indicador de vela rosa prevista (MM2 adaptativa + fundo duplo)
+  {
+    // Boost de probabilidade quando há fundo duplo recente (últimas 6 velas)
+    const temFundoDuploRecente = _mmCache.fundosDuplos && _mmCache.fundosDuplos.some(
+      ([,idx2]) => idx2 >= pts.length - 6
+    );
+    const probBoost = temFundoDuploRecente ? 0.25 : 0;
+    const probEfetiva = Math.min(1, (previsaoRosa.prob || 0) + probBoost);
+    const compEfetiva = Math.max(ultimaCompressao, temFundoDuploRecente ? 0.5 : 0);
+
+    const ativar = (CFG.mm2Adaptive && CFG.mm2On && previsaoRosa.velas > 0)
+                || temFundoDuploRecente
+                || compEfetiva > 0.45;
+
+    if(ativar && sub.length > 0){
+      const prob = probEfetiva;
+      const alvo = previsaoRosa.velas > 0 ? Math.min(previsaoRosa.velas, 5) : (temFundoDuploRecente ? 2 : 0);
+      const lastX = sx(sub.length-1);
+      const step  = sub.length > 1 ? (lastX - sx(0)) / (sub.length-1) : 30;
+
+      // Zona rosa à frente
+      for(let v=1; v<=Math.max(alvo,1); v++){
+        const px = lastX + v*step;
+        if(px > W-scaleW) break;
+        const alpha = 0.15 + (Math.max(alvo,1)-v+1)/Math.max(alvo,1) * 0.38;
+        const glowAlpha = 0.03 + (Math.max(alvo,1)-v+1)/Math.max(alvo,1) * 0.10;
+
+        ctx.fillStyle='rgba(244,114,182,'+glowAlpha+')';
+        ctx.fillRect(px-12, G2_CHART_TOP, 24, cH);
+
+        ctx.setLineDash([3,6]);
+        ctx.strokeStyle='rgba(244,114,182,'+alpha+')';
+        ctx.lineWidth=1.2+(Math.max(alvo,1)-v+1)*0.5;
+        ctx.beginPath();ctx.moveTo(px,G2_CHART_TOP);ctx.lineTo(px,G2_CHART_TOP+cH);ctx.stroke();
+        ctx.setLineDash([]);
+
+        const badgeY = G2_CHART_TOP + cH/2 - (Math.max(alvo,1)-1)*14 + (v-1)*28;
+        ctx.fillStyle='rgba(244,114,182,'+alpha+')';
+        ctx.beginPath();
+        if(ctx.roundRect) ctx.roundRect(px-16, badgeY-10, 32, 20, 5);
+        else ctx.rect(px-16, badgeY-10, 32, 20);
+        ctx.fill();
+        ctx.fillStyle='#fff';ctx.font='bold 10px JetBrains Mono,monospace';ctx.textAlign='center';
+        ctx.fillText('R'+v, px, badgeY+4);
+
+        if(v===1){
+          const label = temFundoDuploRecente ? '🔥ROSA!' : 'ROSA?';
+          ctx.fillStyle='rgba(244,114,182,'+(alpha+0.25)+')';
+          ctx.font='bold 9px JetBrains Mono,monospace';
+          ctx.fillText(label, px, badgeY-16);
+        }
+      }
+
+      // ── SINAL FORTE "1 VELA ANTES" — quando compressão alta ou fundo duplo ──
+      // Destaca a ÚLTIMA vela atual como sendo a vela de compressão pré-rosa
+      const agora2 = Date.now();
+      const pulseSin = Math.sin(agora2 / 220);
+      const pulseOp  = 0.15 + pulseSin * 0.12;
+      const pulseStr = pulseSin > 0;
+
+      if(compEfetiva > 0.45 || temFundoDuploRecente){
+        const lx = lastX;
+        const lastVal = sub[sub.length-1] ? yVal(sub[sub.length-1]) : 1.5;
+        const ly = sy(lastVal);
+
+        // Halo pulsante na última vela
+        ctx.save();
+        ctx.beginPath(); ctx.arc(lx, ly, 26, 0, Math.PI*2);
+        ctx.fillStyle='rgba(244,114,182,'+pulseOp+')'; ctx.fill();
+        ctx.beginPath(); ctx.arc(lx, ly, 16, 0, Math.PI*2);
+        ctx.fillStyle='rgba(244,114,182,'+(pulseOp*1.8)+')'; ctx.fill();
+
+        // Badge "⚡PRÓX ROSA" pulsante
+        const bw2=84, bh2=18, bx2=lx-bw2/2, by2=ly-52;
+        ctx.fillStyle = pulseStr ? 'rgba(244,114,182,0.92)':'rgba(168,85,247,0.82)';
+        ctx.shadowColor = pulseStr ? '#f472b6':'#a855f7';
+        ctx.shadowBlur  = pulseStr ? 16 : 5;
+        ctx.beginPath();
+        if(ctx.roundRect) ctx.roundRect(bx2,by2,bw2,bh2,5); else ctx.rect(bx2,by2,bw2,bh2);
+        ctx.fill();
+        ctx.shadowBlur=0;
+        ctx.fillStyle='#fff'; ctx.font='bold 9px JetBrains Mono,monospace'; ctx.textAlign='center';
+        const label2 = temFundoDuploRecente ? '⚡ FUNDO DUPLO' : '⚡ PRÓX ROSA';
+        ctx.fillText(label2, lx, by2+13);
+
+        // Porcentagem
+        if(prob > 0.1){
+          ctx.fillStyle='rgba(255,160,210,0.85)'; ctx.font='7px JetBrains Mono,monospace';
+          ctx.fillText((prob*100).toFixed(0)+'% prob', lx, by2+26);
+        }
+        ctx.restore();
+      }
+
+      // Barra de compressão no topo
+      if(compEfetiva > 0.3){
+        const barW = (W-12-scaleW-20) * Math.min(1, compEfetiva);
+        const barH = 6, barX = 16, barY = G2_CHART_TOP + 4;
+        ctx.fillStyle='rgba(0,0,0,0.4)';
+        ctx.fillRect(barX-2, barY-2, (W-12-scaleW-20)+4, barH+4);
+        const grad = ctx.createLinearGradient(barX,0,barX+barW,0);
+        grad.addColorStop(0,'#06b6d4');
+        grad.addColorStop(0.5,'#a855f7');
+        grad.addColorStop(1,'#f472b6');
+        ctx.fillStyle=grad;
+        ctx.fillRect(barX, barY, barW, barH);
+        ctx.fillStyle='rgba(255,255,255,0.6)';ctx.font='7px JetBrains Mono,monospace';ctx.textAlign='left';
+        const barLabel = temFundoDuploRecente
+          ? 'FUNDO DUPLO + COMPRESSÃO '+(compEfetiva*100).toFixed(0)+'%'
+          : 'COMPRESSÃO '+(compEfetiva*100).toFixed(0)+'%';
+        ctx.fillText(barLabel, barX+4, barY+barH-1);
+      }
     }
   }
 
@@ -3165,6 +3351,7 @@ setTimeout(()=>{
     const b=document.getElementById('btnRodada');
     if(b){b.classList.add('on');b.textContent='⑬ RODADA ON';}
   }
+  iniciarAnimLoop(); // inicia loop de animação para setas piscantes
 },80);
 </script>
 
